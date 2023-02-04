@@ -19,9 +19,9 @@ export const validationSchemas = {
         description: Yup.string().required("აღწერა სავალდებულო ველია")
     }),
     "educationInformation": Yup.object().shape({
-        "school": Yup.string().required("სასწავლებელი სავალდებულო ველია").min(2, "მინიმუმ 2 სიმბოლო"),
-        "degree": Yup.object().required("ხარისხი სავალდებულო ველია"),
-        "endDate": Yup.date().required("დამთავრების თარიღი სავალდებულო ველია"),
-        "description": Yup.string().required("აღწერა სავალდებულო ველია")
+        school: Yup.string().required("სასწავლებელი სავალდებულო ველია").min(2, "მინიმუმ 2 სიმბოლო"),
+        degree: Yup.string().required("ხარისხი სავალდებულო ველია"),
+        endDate: Yup.date().required("დამთავრების თარიღი სავალდებულო ველია"),
+        description: Yup.string().required("აღწერა სავალდებულო ველია")
     })
 }
