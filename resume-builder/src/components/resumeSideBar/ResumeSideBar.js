@@ -15,23 +15,22 @@ function ResumeSideBar({generalInfo, experienceInfo, educationalInfo }) {
       JSON.parse(localStorage.getItem("educationInformation"))
     );
   }, []);
-  console.log(generalInfo)
   return (
     <div className="sidebar--container">
-      <p>{generalInformation?.name || generalInfo?.name}</p>
-      <p>{generalInformation?.surname || generalInfo?.surname}</p>
-      <p>{generalInformation?.email || generalInfo?.email}</p>
-      <p>{generalInformation?.phone || generalInfo?.phone}</p>
-      <p>{generalInformation?.aboutMe || generalInfo?.aboutMe}</p>
-      <p>{experienceInformation?.position || experienceInfo?.position}</p>
-      <p>{experienceInformation?.employer || experienceInfo?.employer}</p>
-      <p>{experienceInformation?.startDate || experienceInfo?.startDate}</p>
-      <p>{experienceInformation?.endDate || experienceInfo?.endDate}</p>
-      <p>{experienceInformation?.description || experienceInfo?.description}</p>
-      <p>{educationInformation?.school || educationalInfo?.school}</p>
-      <p>{educationInformation?.degree || educationalInfo?.degree}</p>
-      <p>{educationInformation?.endDate || educationalInfo?.endDate}</p>
-      <p>{educationInformation?.description || educationalInfo?.description}</p>
+      <p>{generalInfo?.name || generalInformation?.name}</p>
+      <p>{ generalInfo?.surname || generalInformation?.surname}</p>
+      <p>{ generalInfo?.email || generalInformation?.email}</p>
+      <p>{generalInfo?.phone || generalInformation?.phone}</p>
+      <p>{generalInfo?.aboutMe || generalInformation?.aboutMe}</p>
+      <p>{experienceInfo?.position || experienceInformation?.position}</p>
+      <p>{experienceInfo?.employer || experienceInformation?.employer}</p>
+      <p>{experienceInfo?.startDate || experienceInformation?.startDate}</p>
+      <p>{experienceInfo?.endDate || experienceInformation?.endDate  }</p>
+      <p>{experienceInfo?.description || experienceInformation?.description}</p>
+      <p>{educationalInfo?.school || educationInformation?.school}</p>
+      <p>{educationalInfo?.degree || educationInformation?.degree}</p>
+      <p>{educationalInfo?.endDate || educationInformation?.endDate}</p>
+      <p>{educationalInfo?.description || educationInformation?.description}</p>
     </div>
   );
 }

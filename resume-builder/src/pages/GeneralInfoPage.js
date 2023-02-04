@@ -26,7 +26,6 @@ function GeneralInfoPage() {
       localStorage.setItem("generalInformation", JSON.stringify(formValues));
     }
   }, [formValues]);
-  console.log(formValues)
   return (
     <div className="form--page">
       <div>
