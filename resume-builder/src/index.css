@@ -36,10 +36,10 @@ body {
 .input--label {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 5%;
   width: 45%;
-  min-height: 72px;
-  max-height: 150px;
+  height: 102px;
   font-size: 16px;
   font-weight: 700;
   color: #000000;
@@ -54,10 +54,8 @@ input::file-selector-button {
 .input--label-full {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 5%;
   width: 100%;
-  min-height: 72px;
-  max-height: 150px;
   font-size: 16px;
   font-weight: 700;
   color: #000000;

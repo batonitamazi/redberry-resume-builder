@@ -9,7 +9,7 @@ export const validationSchemas = {
         image: Yup.mixed().nullable().required("სურათის ატვირთვა სავალდებულოა"),
         aboutMe: Yup.string().notRequired(),
         email: Yup.string().email().required("ელექტრონული ფოსტა სავალდებულო ველია"),
-        phone: Yup.string().required("ტელეფონი სალადებულო ველია.").min(9, 'ტელეფონი უნდა იყოს 9 ნიშნა.').max(9, 'ტელეფონი უნდა იყოს 9 ნიშნა.'),
+        phone: Yup.string().required("ტელეფონი სავალდებულოა ველია.").min(9, 'ტელეფონი უნდა იყოს 9 ნიშნა.').max(9, 'ტელეფონი უნდა იყოს 9 ნიშნა.'),
     }),
     "experienceInformation": Yup.object().shape({
         position: Yup.string().required("თანამდებობა სავალდებულო ველია").min(2, "მინიმუმ 2 სიმბოლო"),

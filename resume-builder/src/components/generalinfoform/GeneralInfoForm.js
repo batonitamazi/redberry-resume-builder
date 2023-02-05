@@ -46,7 +46,9 @@ function GeneralInfoForm({
                   });
                 }}
               />
-              {errors.name && touched.name ? <div>{errors.name}</div> : null}
+              {errors.name && touched.name ? (
+                <div className="error_message">{errors.name}</div>
+              ) : null}
             </label>
             <label htmlFor="surname" className="input--label">
               გვარი
@@ -64,31 +66,35 @@ function GeneralInfoForm({
                 }}
               />
               {errors.surname && touched.surname ? (
-                <div>{errors.surname}</div>
+                <div className="error_message">{errors.surname}</div>
               ) : null}
             </label>
           </div>
-          <label htmlFor="image">
-            პირადი ფოტოს ატვირთვა
-            <input
-              id="image"
-              name="image"
-              type="file"
-              onChange={(e) => {
-                setFieldValue("image", e.target.value);
-                setFormValues((prevstate) => {
-                  return { ...prevstate, image: e.target.value };
-                });
-              }}
-            />
-            {errors.image && touched.image ? <div>{errors.image}</div> : null}
-          </label>
+          <div className="image--container">
+            <label htmlFor="image">
+              პირადი ფოტოს ატვირთვა
+              <input
+                id="image"
+                name="image"
+                type="file"
+                onChange={(e) => {
+                  setFieldValue("image", e.target.value);
+                  setFormValues((prevstate) => {
+                    return { ...prevstate, image: e.target.value };
+                  });
+                }}
+              />
+            </label>
+            {errors.image && touched.image ? (
+              <div className="error_message">{errors.image}</div>
+            ) : null}
+          </div>
           <label htmlFor="aboutMe" className="input--label-full">
             ჩემს შესახებ(არასავალდებულო)
             <textarea
               id="aboutMe"
               name="aboutMe"
-              className="input--field"
+              className="input--field textarea--field"
               type="text"
               placeholder="ზოგადი ინფო შენს შესახებ"
               onChange={(e) => {
@@ -99,7 +105,7 @@ function GeneralInfoForm({
               }}
             />
             {errors.aboutMe && touched.aboutMe ? (
-              <div>{errors.aboutMe}</div>
+              <div className="error_message">{errors.aboutMe}</div>
             ) : null}
           </label>
           <label htmlFor="email" className="input--label-full">
@@ -117,7 +123,9 @@ function GeneralInfoForm({
                 });
               }}
             />
-            {errors.email && touched.email ? <div>{errors.email}</div> : null}
+            {errors.email && touched.email ? (
+              <div className="error_message">{errors.email}</div>
+            ) : null}
           </label>
           <label htmlFor="phone" className="input--label-full">
             მობილურის ნომერი
@@ -134,9 +142,13 @@ function GeneralInfoForm({
                 });
               }}
             />
-            {errors.phone && touched.phone ? <div>{errors.phone}</div> : null}
+            {errors.phone && touched.phone ? (
+              <div className="error_message">{errors.phone}</div>
+            ) : null}
           </label>
-          <button type="submit">შემდეგი</button>
+          <button type="submit" className="submit__btn">
+            შემდეგი
+          </button>
         </Form>
       )}
     </Formik>

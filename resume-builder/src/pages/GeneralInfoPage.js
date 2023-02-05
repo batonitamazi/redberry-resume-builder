@@ -32,7 +32,7 @@ function GeneralInfoPage() {
     <div className="form--page">
       <div className="form--container">
         <PageHeader navigate={navigate}/>
-        <GeneralInfoForm initialValues={initialValues} setFormValues={setFormValues} getValues={getValues}/>
+        <GeneralInfoForm initialValues={initialValues} setFormValues={setFormValues} getValues={getValues} />
       </div>
       <ResumeSideBar generalInfo={formValues}/>
     </div>
