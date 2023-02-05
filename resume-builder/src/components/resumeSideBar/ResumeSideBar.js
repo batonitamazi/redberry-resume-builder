@@ -20,6 +20,7 @@ function ResumeSideBar({generalInfo, experienceInfo, educationalInfo }) {
       <p>{generalInfo?.name || generalInformation?.name}</p>
       <p>{ generalInfo?.surname || generalInformation?.surname}</p>
       <p>{ generalInfo?.email || generalInformation?.email}</p>
+      <img src={generalInfo?.image || generalInformation?.image} alt="user avatar" className="user__avatar"/>
       <p>{generalInfo?.phone || generalInformation?.phone}</p>
       <p>{generalInfo?.aboutMe || generalInformation?.aboutMe}</p>
       <p>{experienceInfo?.position || experienceInformation?.position}</p>

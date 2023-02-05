@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LandingPage from "./pages/LandingPage";
+import LandingPage from "./pages/landingpage/LandingPage";
 import GeneralInfoPage from "./pages/GeneralInfoPage";
 import ExperiencesPage from "./pages/ExperiencesPage";
 import EducationPage from "./pages/EducationPage";
