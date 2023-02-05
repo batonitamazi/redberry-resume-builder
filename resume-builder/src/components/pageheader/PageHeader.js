@@ -1,7 +1,7 @@
 import React from "react";
 import "./pageheader.css";
 
-function PageHeader({navigate}) {
+function PageHeader({navigate, header, pagesize}) {
   return (
     <div className="page--header--container">
       <button className="rounded--btn" onClick={() => navigate('/')}>
@@ -13,8 +13,8 @@ function PageHeader({navigate}) {
       </button>
       <div className="page--header">
         <div className="header--card">
-          <h2 className="page--heading">პირადი ინფო</h2>
-          <p className="contents--paragraph">1/3</p>
+          <h2 className="page--heading">{header}</h2>
+          <p className="contents--paragraph">{pagesize}</p>
         </div>
         <div
           className="red--line"

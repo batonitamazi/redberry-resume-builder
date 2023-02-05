@@ -31,7 +31,7 @@ function GeneralInfoPage() {
   return (
     <div className="form--page">
       <div className="form--container">
-        <PageHeader navigate={navigate}/>
+        <PageHeader navigate={navigate} header="პირადი ინფო" pagesize="1/3"/>
         <GeneralInfoForm initialValues={initialValues} setFormValues={setFormValues} getValues={getValues} />
       </div>
       <ResumeSideBar generalInfo={formValues}/>

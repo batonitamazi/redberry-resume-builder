@@ -28,7 +28,7 @@ function ExperiencesPage() {
   return (
     <div className="form--page">
       <div className="form--container">
-        <PageHeader navigate={navigate}/>
+        <PageHeader navigate={navigate} header="გამოცდილება" pagesize="2/3"/>
         <ExperienceForm initialValues={initialValues} setFormValues={setFormValues} getValues={getValues} navigate={navigate}/>
       </div>
       <ResumeSideBar experienceInfo={formValues}/>
