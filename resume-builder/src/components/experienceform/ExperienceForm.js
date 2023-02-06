@@ -112,7 +112,7 @@ function ExperienceForm({
             </div>
             <label htmlFor="description" className="input--label-full">
               აღწერა
-              <Field
+              <textarea
                 id="description"
                 name="description"
                 className="input--field textarea--field"

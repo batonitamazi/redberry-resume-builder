@@ -5,10 +5,10 @@ import "./generalinfoform.css";
 
 function GeneralInfoForm({
   initialValues,
-  formValues,
   setFormValues,
   getValues,
 }) {
+
   return (
     <Formik
       validationSchema={validationSchemas["generalInformation"]}
@@ -29,6 +29,7 @@ function GeneralInfoForm({
             handleSubmit(values);
           }}
           className="form--card"
+          onChange={() => console.log(values)}
         >
           <div className="group--container">
             <label htmlFor="name" className="input--label">
@@ -36,7 +37,7 @@ function GeneralInfoForm({
               <input
                 id="name"
                 name="name"
-                className="input--field"
+                className={errors.name ? "input--field--error" : "input--field"}
                 type="text"
                 placeholder="სახელი"
                 onChange={(e) => {
@@ -55,7 +56,9 @@ function GeneralInfoForm({
               <input
                 id="surname"
                 name="surname"
-                className="input--field"
+                className={
+                  errors.surname ? "input--field--error" : "input--field"
+                }
                 type="text"
                 placeholder="გვარი"
                 onChange={(e) => {
@@ -78,12 +81,18 @@ function GeneralInfoForm({
                 name="image"
                 type="file"
                 onChange={(e) => {
-                  setFieldValue("image", e.target.value);
-                  setFormValues((prevstate) => {
-                    return { ...prevstate, image: e.target.value };
-                  });
+                  const file = e.target.files[0];
+                  const reader = new FileReader();
+                  reader.onloadend = () => {
+                    setFieldValue("image", reader.result);
+                    setFormValues((prevstate) => {
+                      return { ...prevstate, image: reader.result };
+                    });
+                  };
+                  reader.readAsDataURL(file);
                 }}
               />
+              
             </label>
             {errors.image && touched.image ? (
               <div className="error_message">{errors.image}</div>
@@ -94,7 +103,11 @@ function GeneralInfoForm({
             <textarea
               id="aboutMe"
               name="aboutMe"
-              className="input--field textarea--field"
+              className={
+                errors.aboutMe
+                  ? "input--field--error textarea--field"
+                  : "input--field textarea--field"
+              }
               type="text"
               placeholder="ზოგადი ინფო შენს შესახებ"
               onChange={(e) => {
@@ -113,7 +126,7 @@ function GeneralInfoForm({
             <input
               id="email"
               name="email"
-              className="input--field"
+              className={errors.email ? "input--field--error" : "input--field"}
               type="text"
               placeholder="anzor777@redberry.ge"
               onChange={(e) => {
@@ -132,7 +145,7 @@ function GeneralInfoForm({
             <input
               id="phone"
               name="phone"
-              className="input--field"
+              className={errors.phone ? "input--field--error" : "input--field"}
               type="text"
               placeholder="+995 555 55 55 55"
               onChange={(e) => {

@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Halvetica";   /*Can be any text*/
+  src: local("AirbnbCerealMedium"),
+    url("./fonts/HelveticaNeue.ttc") format("truetype");
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,6 +12,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Halvetica";
 }
 .contents--paragraph{
   font-size: 20px;
@@ -28,10 +35,21 @@ body {
   padding-left: 16px;
   font-size: 16px;
   font-weight: 400;
-
 }
 .input--field:focus{
   outline: 2px solid #BCBCBC;
+}
+.input--field--error {
+  height: 48px;
+  width: 100%;
+  background-color: #FFFFFF;
+  color: #BCBCBC;
+  outline: 1px solid #BCBCBC;
+  border: none;
+  padding-left: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  outline: 2px solid #EF5050;
 }
 .input--label {
   display: flex;

@@ -3,7 +3,7 @@
     box-sizing: border-box;
     display: flex;
     width: 77.5%;
-    margin-left: 110px;
+    margin-left: 136px;
     padding-top: 69px;
     height: 90%;
     flex-direction: column;
@@ -24,9 +24,12 @@
 }
 .textarea--field {
     height: 103px;
+    max-height: 120px;
     padding-top: 13px;
     max-width: 100%;
+    overflow-wrap: break-word;
 }
+
 .btn--container {
     display: flex;
     width: 100%;
