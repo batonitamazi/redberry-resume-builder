@@ -1,21 +1,16 @@
 import React from "react";
-import { Field, Form, Formik } from "formik";
+import {Form, Formik } from "formik";
 import { validationSchemas } from "../../helpers/validations";
-function EducationForm({
-  initialValues,
-  formValues,
-  setFormValues,
-  getValues,
-  navigate,
-}) {
+function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
   return (
     <>
       <Formik
         validationSchema={validationSchemas["educationInformation"]}
         initialValues={initialValues}
         onSubmit={getValues}
+        enableReinitialize={true}
       >
-        {({ errors, touched, handleSubmit, values, setFieldValue }) => (
+        {({ errors, touched, handleSubmit, setFieldValue }) => (
           <Form
             onSubmit={(values) => {
               console.log(errors);
@@ -31,6 +26,7 @@ function EducationForm({
                 className="input--field"
                 type="text"
                 placeholder="სასწავლებელი"
+                defaultValue={initialValues?.school}
                 onChange={(e) => {
                   setFieldValue("school", e.target.value);
                   setFormValues((prevstate) => {
@@ -50,6 +46,7 @@ function EducationForm({
                   name="degree"
                   className="input--field"
                   type="text"
+                  defaultValue={initialValues?.degree}
                   placeholder="ხარისხი"
                   onChange={(e) => {
                     setFieldValue("degree", e.target.value);
@@ -64,9 +61,10 @@ function EducationForm({
               </label>
               <label htmlFor="endDate" className="input--label">
                 დამთავრების რიცხვი
-                <Field
+                <input
                   id="endDate"
                   name="endDate"
+                  defaultValue={initialValues?.endDate}
                   type="date"
                   className="input--field"
                   placeholder="mm/dd/yyyy"
@@ -84,11 +82,12 @@ function EducationForm({
             </div>
             <label htmlFor="description" className="input--label-full">
               აღწერა
-              <Field
+              <input
                 id="description"
                 name="description"
                 className="input--field textarea--field"
                 type="text"
+                defaultValue={initialValues?.description}
                 placeholder="როლი თანამდებობაზე"
                 onChange={(e) => {
                   setFieldValue("description", e.target.value);

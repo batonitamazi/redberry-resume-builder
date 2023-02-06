@@ -1,30 +1,18 @@
 import React from "react";
-import { Field, Form, Formik } from "formik";
+import {Form, Formik } from "formik";
 import { validationSchemas } from "../../helpers/validations";
-import './experienceform.css';
+import "./experienceform.css";
 
-function ExperienceForm({
-  initialValues,
-  formValues,
-  setFormValues,
-  getValues,
-  navigate
-}) {
+function ExperienceForm({ initialValues, setFormValues, getValues, navigate }) {
   return (
     <>
       <Formik
         validationSchema={validationSchemas["experienceInformation"]}
         initialValues={initialValues}
         onSubmit={getValues}
+        enableReinitialize={true}
       >
-        {({
-          errors,
-          touched,
-          handleSubmit,
-          handleChange,
-          values,
-          setFieldValue,
-        }) => (
+        {({ errors, touched, handleSubmit, setFieldValue }) => (
           <Form
             onSubmit={(values) => {
               console.log(errors);
@@ -39,6 +27,7 @@ function ExperienceForm({
                 name="position"
                 className="input--field"
                 type="text"
+                defaultValue={initialValues?.position}
                 placeholder="თანამდებობა"
                 onChange={(e) => {
                   setFieldValue("position", e.target.value);
@@ -57,6 +46,7 @@ function ExperienceForm({
                 id="employer"
                 name="employer"
                 className="input--field"
+                defaultValue={initialValues?.employer}
                 type="text"
                 placeholder="დამსაქმებელი"
                 onChange={(e) => {
@@ -77,6 +67,7 @@ function ExperienceForm({
                   id="startDate"
                   name="startDate"
                   type="date"
+                  defaultValue={initialValues?.startDate}
                   className="input--field"
                   placeholder="mm/dd/yyyy"
                   onChange={(e) => {
@@ -92,11 +83,12 @@ function ExperienceForm({
               </label>
               <label htmlFor="endDate" className="input--label">
                 დამთავრების რიცხვი
-                <Field
+                <input
                   id="endDate"
                   name="endDate"
                   type="date"
                   className="input--field"
+                  defaultValue={initialValues?.endDate}
                   placeholder="mm/dd/yyyy"
                   onChange={(e) => {
                     setFieldValue("endDate", e.target.value);
@@ -117,6 +109,7 @@ function ExperienceForm({
                 name="description"
                 className="input--field textarea--field"
                 type="text"
+                defaultValue={initialValues?.description}
                 placeholder="როლი თანამდებობაზე"
                 onChange={(e) => {
                   setFieldValue("description", e.target.value);
@@ -135,7 +128,12 @@ function ExperienceForm({
           </Form>
         )}
       </Formik>
-      <button className="submit__btn position__btn" onClick={() => navigate("/general-information")}>უკან</button>
+      <button
+        className="submit__btn position__btn"
+        onClick={() => navigate("/general-information")}
+      >
+        უკან
+      </button>
     </>
   );
 }

@@ -3,20 +3,19 @@ import "./resumesidebar.css";
 
 function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
   const [generalInformation, setGeneralInformation] = useState();
-  // const [experienceInformation, setExperienceInformation] = useState();
-  // const [educationInformation, setEducationInformation] = useState();
+  const [experienceInformation, setExperienceInformation] = useState();
+  const [educationInformation, setEducationInformation] = useState();
 
   useEffect(() => {
     setGeneralInformation(
       JSON.parse(localStorage.getItem("generalInformation"))
+    );    
+    setExperienceInformation(
+      JSON.parse(localStorage.getItem("experienceInformation"))
     );
-    
-    // setExperienceInformation(
-    //   JSON.parse(localStorage.getItem("experienceInformation"))
-    // );
-    // setEducationInformation(
-    //   JSON.parse(localStorage.getItem("educationInformation"))
-    // );
+    setEducationInformation(
+      JSON.parse(localStorage.getItem("educationInformation"))
+    );
   }, []);
   return (
     <div className="sidebar--container">
@@ -67,7 +66,7 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
           </>
         ) : null}
       </div>
-      {/* <div className="generalInfo--card">
+      <div className="generalInfo--card">
         <div className="aboutMe--container">
           გამოცდილება
           <h2 className="position--heading">
@@ -84,8 +83,8 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
           </p>
         </div>
         <div className="grey--line"></div>
-      </div> */}
-      {/* <div className="generalInfo--card">
+      </div>
+      <div className="generalInfo--card">
         <div className="aboutMe--container">
           განათლება
           <h2 className="position--heading">
@@ -101,7 +100,7 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
           </p>
         </div>
         <div className="grey--line"></div>
-      </div> */}
+      </div>
     </div> 
   );
 }

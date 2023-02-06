@@ -2,33 +2,47 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ResumeSideBar from "../components/resumeSideBar/ResumeSideBar";
 import PageHeader from "../components/pageheader/PageHeader";
-import EducationForm from '../components/educationform/EducationForm'
-const initialValues = {
-  school: "",
-  degree: "",
-  endDate: "",
-  description: "",
-};
+import EducationForm from "../components/educationform/EducationForm";
 
 function EducationPage() {
   const navigate = useNavigate();
+  const [initialValues, setInitialValues] = useState({
+    school: "",
+    degree: "",
+    endDate: "",
+    description: "",
+  });
   const [formValues, setFormValues] = useState();
   const getValues = (values) => {
-    localStorage.setItem("educationInformation", JSON.stringify(formValues));
+    localStorage.setItem("educationInformation", JSON.stringify(values));
     navigate("/resume");
   };
   useEffect(() => {
     if (formValues) {
       localStorage.setItem("educationInformation", JSON.stringify(formValues));
+      setInitialValues(
+        JSON.parse(localStorage.getItem("educationInformation"))
+      );
     }
   }, [formValues]);
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("educationInformation"))) {
+      setInitialValues(JSON.parse(localStorage.getItem("educationInformation")));
+      setFormValues(JSON.parse(localStorage.getItem("educationInformation")));
+    }
+  }, []);
   return (
     <div className="form--page">
       <div className="form--container">
-        <PageHeader navigate={navigate} header="განათლება" pagesize="3/3"/>
-        <EducationForm initialValues={initialValues} setFormValues={setFormValues} getValues={getValues} navigate={navigate}/>
+        <PageHeader navigate={navigate} header="განათლება" pagesize="3/3" />
+        <EducationForm
+          initialValues={initialValues}
+          setFormValues={setFormValues}
+          getValues={getValues}
+          navigate={navigate}
+        />
       </div>
-      <ResumeSideBar educationalInfo={formValues}/>
+      <ResumeSideBar educationalInfo={formValues} />
     </div>
   );
 }

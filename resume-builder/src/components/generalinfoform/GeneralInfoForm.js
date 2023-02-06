@@ -15,10 +15,7 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
         errors,
         touched,
         handleSubmit,
-        handleChange,
-        values,
         setFieldValue,
-        formValues,
       }) => (
         <Form
           onSubmit={(values) => {
