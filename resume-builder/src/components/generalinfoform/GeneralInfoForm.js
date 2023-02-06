@@ -3,17 +3,13 @@ import { Form, Formik } from "formik";
 import { validationSchemas } from "../../helpers/validations";
 import "./generalinfoform.css";
 
-function GeneralInfoForm({
-  initialValues,
-  setFormValues,
-  getValues,
-}) {
-
+function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
   return (
     <Formik
       validationSchema={validationSchemas["generalInformation"]}
       initialValues={initialValues}
       onSubmit={getValues}
+      enableReinitialize={true}
     >
       {({
         errors,
@@ -22,6 +18,7 @@ function GeneralInfoForm({
         handleChange,
         values,
         setFieldValue,
+        formValues,
       }) => (
         <Form
           onSubmit={(values) => {
@@ -29,7 +26,6 @@ function GeneralInfoForm({
             handleSubmit(values);
           }}
           className="form--card"
-          onChange={() => console.log(values)}
         >
           <div className="group--container">
             <label htmlFor="name" className="input--label">
@@ -40,6 +36,7 @@ function GeneralInfoForm({
                 className={errors.name ? "input--field--error" : "input--field"}
                 type="text"
                 placeholder="სახელი"
+                defaultValue={initialValues?.name}
                 onChange={(e) => {
                   setFieldValue("name", e.target.value);
                   setFormValues((prevstate) => {
@@ -56,6 +53,7 @@ function GeneralInfoForm({
               <input
                 id="surname"
                 name="surname"
+                defaultValue={initialValues?.surname}
                 className={
                   errors.surname ? "input--field--error" : "input--field"
                 }
@@ -80,6 +78,7 @@ function GeneralInfoForm({
                 id="image"
                 name="image"
                 type="file"
+                defaultValue={initialValues?.image}
                 onChange={(e) => {
                   const file = e.target.files[0];
                   const reader = new FileReader();
@@ -92,7 +91,6 @@ function GeneralInfoForm({
                   reader.readAsDataURL(file);
                 }}
               />
-              
             </label>
             {errors.image && touched.image ? (
               <div className="error_message">{errors.image}</div>
@@ -103,6 +101,7 @@ function GeneralInfoForm({
             <textarea
               id="aboutMe"
               name="aboutMe"
+              defaultValue={initialValues?.aboutMe}
               className={
                 errors.aboutMe
                   ? "input--field--error textarea--field"
@@ -126,6 +125,7 @@ function GeneralInfoForm({
             <input
               id="email"
               name="email"
+              defaultValue={initialValues?.email}
               className={errors.email ? "input--field--error" : "input--field"}
               type="text"
               placeholder="anzor777@redberry.ge"
@@ -145,6 +145,7 @@ function GeneralInfoForm({
             <input
               id="phone"
               name="phone"
+              defaultValue={initialValues?.phone}
               className={errors.phone ? "input--field--error" : "input--field"}
               type="text"
               placeholder="+995 555 55 55 55"

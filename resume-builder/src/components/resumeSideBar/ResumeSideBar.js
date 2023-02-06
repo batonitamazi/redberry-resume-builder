@@ -3,20 +3,20 @@ import "./resumesidebar.css";
 
 function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
   const [generalInformation, setGeneralInformation] = useState();
-  const [experienceInformation, setExperienceInformation] = useState();
-  const [educationInformation, setEducationInformation] = useState();
+  // const [experienceInformation, setExperienceInformation] = useState();
+  // const [educationInformation, setEducationInformation] = useState();
 
   useEffect(() => {
     setGeneralInformation(
       JSON.parse(localStorage.getItem("generalInformation"))
     );
     
-    setExperienceInformation(
-      JSON.parse(localStorage.getItem("experienceInformation"))
-    );
-    setEducationInformation(
-      JSON.parse(localStorage.getItem("educationInformation"))
-    );
+    // setExperienceInformation(
+    //   JSON.parse(localStorage.getItem("experienceInformation"))
+    // );
+    // setEducationInformation(
+    //   JSON.parse(localStorage.getItem("educationInformation"))
+    // );
   }, []);
   return (
     <div className="sidebar--container">

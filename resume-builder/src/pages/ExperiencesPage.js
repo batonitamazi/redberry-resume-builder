@@ -16,7 +16,6 @@ function ExperiencesPage() {
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState();
   const getValues = (values) => {
-    console.log(values);
     localStorage.setItem("experienceInformation", JSON.stringify(formValues));
     navigate("/education");
   };

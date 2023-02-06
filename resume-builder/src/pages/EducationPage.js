@@ -14,7 +14,6 @@ function EducationPage() {
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState();
   const getValues = (values) => {
-    console.log(values);
     localStorage.setItem("educationInformation", JSON.stringify(formValues));
     navigate("/resume");
   };
