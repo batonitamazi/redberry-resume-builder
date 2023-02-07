@@ -108,7 +108,7 @@ function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
       </Formik>
       <button
         className="submit__btn position__btn"
-        onClick={() => navigate("/general-information")}
+        onClick={() => navigate("/experience")}
       >
         უკან
       </button>

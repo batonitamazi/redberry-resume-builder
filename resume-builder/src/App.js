@@ -7,19 +7,21 @@ import ExperiencesPage from "./pages/ExperiencesPage";
 import EducationPage from "./pages/EducationPage";
 import ResumePage from "./pages/ResumePage";
 
-
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<LandingPage />}/>
-          <Route path="/general-information" element={<GeneralInfoPage />}/>
-          <Route path="/experience" element={<ExperiencesPage />} />
-          <Route path="/education" element={<EducationPage />}/>
-          <Route path="/resume" element={<ResumePage />} />
-        </Routes>
-      </Router>
+          <Router>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route
+                path="/general-information"
+                element={<GeneralInfoPage />}
+              />
+              <Route path="/experience" element={<ExperiencesPage />} />
+              <Route path="/education" element={<EducationPage />} />
+              <Route path="/resume" element={<ResumePage />} />
+            </Routes>
+          </Router>
     </div>
   );
 }

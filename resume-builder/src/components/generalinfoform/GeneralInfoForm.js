@@ -30,7 +30,7 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
               <input
                 id="name"
                 name="name"
-                className={errors.name ? "input--field--error" : "input--field"}
+                className={touched.name && errors.name   ? "input--field--error" : "input--field"}
                 type="text"
                 placeholder="სახელი"
                 defaultValue={initialValues?.name}
@@ -52,7 +52,7 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
                 name="surname"
                 defaultValue={initialValues?.surname}
                 className={
-                  errors.surname ? "input--field--error" : "input--field"
+                  errors.surname && touched.surname? "input--field--error" : "input--field"
                 }
                 type="text"
                 placeholder="გვარი"
@@ -100,7 +100,7 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
               name="aboutMe"
               defaultValue={initialValues?.aboutMe}
               className={
-                errors.aboutMe
+                errors.aboutMe && touched.aboutMe
                   ? "input--field--error textarea--field"
                   : "input--field textarea--field"
               }
@@ -123,7 +123,7 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
               id="email"
               name="email"
               defaultValue={initialValues?.email}
-              className={errors.email ? "input--field--error" : "input--field"}
+              className={errors.email && touched.email? "input--field--error" : "input--field"}
               type="text"
               placeholder="anzor777@redberry.ge"
               onChange={(e) => {
@@ -143,7 +143,7 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
               id="phone"
               name="phone"
               defaultValue={initialValues?.phone}
-              className={errors.phone ? "input--field--error" : "input--field"}
+              className={errors.phone && touched.phone? "input--field--error" : "input--field"}
               type="text"
               placeholder="+995 555 55 55 55"
               onChange={(e) => {

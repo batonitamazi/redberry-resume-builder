@@ -24,7 +24,7 @@
 }
 .red--line {
     width: 100%;
-    border: 1px solid red;
+    border: 1px solid #1A1A1A;
 }
 .startForm--btn {
     width: 464px;
@@ -42,8 +42,8 @@
     max-height: 38px;
 }
 .hologram__logo {
-    right: 22%;
-    top: 45%;
+    right: 41%;
+    top: 47%;
     position: absolute;
     z-index: 1;
 }

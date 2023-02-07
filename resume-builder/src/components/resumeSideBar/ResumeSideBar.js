@@ -21,7 +21,7 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
     <div className="sidebar--container">
       {generalInfo?.image || generalInformation?.image ? (
         <img
-        src={generalInfo?.image || generalInformation?.image}
+        src={generalInfo?.image.length >=0 ? generalInfo?.image : generalInformation?.image}
         className="user__avatar"
         alt="user profile"
       />
@@ -29,8 +29,8 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
       
       <div className="generalInfo--card">
         <h1 className="person--name">
-          {generalInfo?.name || generalInformation?.name}{" "}
-          {generalInfo?.surname || generalInformation?.surname}
+          {generalInfo?.name?.length >=0 ? generalInfo?.name : generalInformation?.name}
+          {generalInfo?.surname?.length >=0 ? generalInfo?.surname : generalInformation?.surname}
         </h1>
         <div>
           {generalInfo?.email || generalInformation?.email ? (
@@ -40,7 +40,7 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
                 alt="email logo"
                 className="email__logo"
               />
-              {generalInfo?.email || generalInformation?.email}
+              {generalInfo?.email.length >=0 ? generalInfo?.email : generalInformation?.email}
             </div>
           ) : null}
           {generalInfo?.phone || generalInformation?.phone ? (
@@ -50,7 +50,7 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
                 alt="cellphone logo"
                 className="email__logo"
               />
-              {generalInfo?.phone || generalInformation?.phone}
+             {generalInfo?.phone.length >=0 ? generalInfo?.phone : generalInformation?.phone}
             </div>
           ) : null}
         </div>
@@ -59,7 +59,7 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
             <div className="aboutMe--container">
               ჩემს შესახებ
               <p className="aboutMe--parapgraph">
-                {generalInfo?.aboutMe || generalInformation?.aboutMe}
+              {generalInfo?.aboutMe.length >=0 ? generalInfo?.aboutMe : generalInformation?.aboutMe}
               </p>
             </div>
             <div className="grey--line"></div>
@@ -70,16 +70,17 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
         <div className="aboutMe--container">
           გამოცდილება
           <h2 className="position--heading">
-            {experienceInfo?.position || experienceInformation?.position}
+          {experienceInfo?.position?.length >=0 ? experienceInfo?.position : experienceInformation?.position}
             {",  "}
-            {experienceInfo?.employer || experienceInformation?.employer}
+            {experienceInfo?.employer?.length >=0 ? experienceInfo?.employer : experienceInformation?.employer}
           </h2>
           <p className="working--date--range">
-            {experienceInfo?.startDate || experienceInformation?.startDate} -{" "}
-            {experienceInfo?.endDate || experienceInformation?.endDate}
+          {experienceInfo?.startDate?.length >=0 ? experienceInfo?.startDate : experienceInformation?.startDate}-{" "}
+          {experienceInfo?.endDate?.length >=0 ? experienceInfo?.endDate : experienceInformation?.endDate}
+
           </p>
           <p className="aboutMe--parapgraph">
-            {experienceInfo?.description || experienceInformation?.description}
+          {experienceInfo?.description?.length >=0 ? experienceInfo?.description : experienceInformation?.description}
           </p>
         </div>
         <div className="grey--line"></div>
@@ -88,15 +89,15 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
         <div className="aboutMe--container">
           განათლება
           <h2 className="position--heading">
-            {educationalInfo?.school || educationInformation?.school}
+          {educationalInfo?.school?.length >=0 ? educationalInfo?.school : educationInformation?.school}
             {",  "}
-            {educationalInfo?.degree || educationInformation?.degree}
+            {educationalInfo?.degree?.length >=0 ? educationalInfo?.degree : educationInformation?.degree}
           </h2>
           <p className="working--date--range">
-            {educationalInfo?.endDate || educationInformation?.endDate}
+          {educationalInfo?.endDate?.length >=0 ? educationalInfo?.endDate : educationInformation?.endDate}
           </p>
           <p className="aboutMe--parapgraph">
-            {educationalInfo?.description || educationInformation?.description}
+          {educationalInfo?.description?.length >=0 ? educationalInfo?.description : educationInformation?.description}
           </p>
         </div>
         <div className="grey--line"></div>
