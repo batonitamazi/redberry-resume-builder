@@ -21,6 +21,7 @@ function App() {
               <Route path="/education" element={<EducationPage />} />
               <Route path="/resume" element={<ResumePage />} />
             </Routes>
+
           </Router>
     </div>
   );

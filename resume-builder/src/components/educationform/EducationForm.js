@@ -1,5 +1,5 @@
 import React from "react";
-import {Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import { validationSchemas } from "../../helpers/validations";
 function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
   return (
@@ -116,18 +116,26 @@ function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
                 <div>{errors.description}</div>
               ) : null}
             </label>
-            <button type="submit" className="submit__btn">
-              შემდეგი
-            </button>
+            <div className="grey--line"></div>
+            <div className="moreField--btn--container">
+              <button className="more__field__btn">
+                სხვა სასწავლებლის დამატება
+              </button>
+            </div>
+            <div className="form--actions">
+              <button
+                className="submit__btn"
+                onClick={() => navigate("/experience")}
+              >
+                უკან
+              </button>
+              <button type="submit" className="submit__btn">
+                შემდეგი
+              </button>
+            </div>
           </Form>
         )}
       </Formik>
-      <button
-        className="submit__btn position__btn"
-        onClick={() => navigate("/experience")}
-      >
-        უკან
-      </button>
     </>
   );
 }

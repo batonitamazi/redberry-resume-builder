@@ -1,6 +1,6 @@
 .App {
-  width: 100vw;
-  height: 100vh;
+  width: 1920px;
+  height: 1080px;
   background-color: #f9f9f9;
 }
 .form--page {
@@ -26,6 +26,7 @@
   justify-content: center;
 }
 .error_message {
+  margin-top: 8px;
   font-size: 14px;
   font-weight: 300;
   color: #2e2e2e;
@@ -44,5 +45,6 @@
   font-size: 16px;
   font-weight: 500;
   color: #FFFFFF;
+  font-family: "Halvetica";
   cursor: pointer;
 }

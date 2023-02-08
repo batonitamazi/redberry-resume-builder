@@ -15,7 +15,6 @@ function ExperiencesPage() {
   const navigate = useNavigate();
   const [initialValues, setInitialValues] = useState(initialState);
   const [formValues, setFormValues] = useState(initialState);
-  const [numFields, setNumFields] = useState(1);
   const getValues = (values) => {
     localStorage.setItem("experienceInformation", JSON.stringify(values));
     navigate("/education");
@@ -45,8 +44,6 @@ function ExperiencesPage() {
           setFormValues={setFormValues}
           getValues={getValues}
           navigate={navigate}
-          numFields={numFields}
-          setNumFields={setNumFields}
         />
       </div>
       <ResumeSideBar experienceInfo={formValues} />

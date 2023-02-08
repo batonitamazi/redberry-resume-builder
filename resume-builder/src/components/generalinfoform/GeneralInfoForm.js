@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Formik } from "formik";
 import { validationSchemas } from "../../helpers/validations";
 import "./generalinfoform.css";
+import InputField from "../inputfield/InputField";
 
 function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
   return (
@@ -19,54 +20,26 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
           className="form--card"
         >
           <div className="group--container">
-            <label htmlFor="name" className="input--label">
-              სახელი
-              <input
-                id="name"
-                name="name"
-                defaultValue={initialValues?.name}
-                className={
-                  errors.name && touched.name
-                    ? "input--field--error"
-                    : "input--field"
-                }
-                type="text"
-                placeholder="სახელი"
-                onChange={(e) => {
-                  setFieldValue("name", e.target.value);
-                  setFormValues((prevstate) => {
-                    return { ...prevstate, name: e.target.value };
-                  });
-                }}
-              />
-              {errors.name && touched.name ? (
-                <div className="error_message">{errors.name}</div>
-              ) : null}
-            </label>
-            <label htmlFor="surname" className="input--label">
-              გვარი
-              <input
-                id="surname"
-                name="surname"
-                defaultValue={initialValues?.surname}
-                className={
-                  errors.surname && touched.surname
-                    ? "input--field--error"
-                    : "input--field"
-                }
-                type="text"
-                placeholder="გვარი"
-                onChange={(e) => {
-                  setFieldValue("surname", e.target.value);
-                  setFormValues((prevstate) => {
-                    return { ...prevstate, surname: e.target.value };
-                  });
-                }}
-              />
-              {errors.surname && touched.surname ? (
-                <div className="error_message">{errors.surname}</div>
-              ) : null}
-            </label>
+            <InputField
+              mainName="name"
+              value={initialValues?.name}
+              errors={errors.name}
+              touched={touched.name}
+              placeholder="სახელი"
+              labelName="სახელი"
+              setFieldValue={setFieldValue}
+              setFormValues={setFormValues}
+            />
+            <InputField
+              mainName="surname"
+              value={initialValues?.surname}
+              errors={errors.surname}
+              touched={touched.surname}
+              placeholder="გვარი"
+              labelName="გვარი"
+              setFieldValue={setFieldValue}
+              setFormValues={setFormValues}
+            />
           </div>
           <div className="image--container">
             <label htmlFor="image">
@@ -93,78 +66,39 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
               <div className="error_message">{errors.image}</div>
             ) : null}
           </div>
-          <label htmlFor="aboutMe" className="input--label-full">
-            ჩემს შესახებ(არასავალდებულო)
-            <textarea
-              id="aboutMe"
-              name="aboutMe"
-              defaultValue={initialValues?.aboutMe}
-              className={
-                errors.aboutMe && touched.aboutMe
-                  ? "input--field--error textarea--field"
-                  : "input--field textarea--field"
-              }
-              type="text"
-              placeholder="ზოგადი ინფო შენს შესახებ"
-              onChange={(e) => {
-                setFieldValue("aboutMe", e.target.value);
-                setFormValues((prevstate) => {
-                  return { ...prevstate, aboutMe: e.target.value };
-                });
-              }}
-            />
-            {errors.aboutMe && touched.aboutMe ? (
-              <div className="error_message">{errors.aboutMe}</div>
-            ) : null}
-          </label>
-          <label htmlFor="email" className="input--label-full">
-            ელ-ფოსტა
-            <input
-              id="email"
-              name="email"
-              defaultValue={initialValues?.email}
-              className={
-                errors.email && touched.email
-                  ? "input--field--error"
-                  : "input--field"
-              }
-              type="text"
-              placeholder="anzor777@redberry.ge"
-              onChange={(e) => {
-                setFieldValue("email", e.target.value);
-                setFormValues((prevstate) => {
-                  return { ...prevstate, email: e.target.value };
-                });
-              }}
-            />
-            {errors.email && touched.email ? (
-              <div className="error_message">{errors.email}</div>
-            ) : null}
-          </label>
-          <label htmlFor="phone" className="input--label-full">
-            მობილურის ნომერი
-            <input
-              id="phone"
-              name="phone"
-              defaultValue={initialValues?.phone}
-              className={
-                errors.phone && touched.phone
-                  ? "input--field--error"
-                  : "input--field"
-              }
-              type="text"
-              placeholder="+995 555 55 55 55"
-              onChange={(e) => {
-                setFieldValue("phone", e.target.value);
-                setFormValues((prevstate) => {
-                  return { ...prevstate, phone: e.target.value };
-                });
-              }}
-            />
-            {errors.phone && touched.phone ? (
-              <div className="error_message">{errors.phone}</div>
-            ) : null}
-          </label>
+          <InputField
+            mainName="aboutMe"
+            value={initialValues?.aboutMe}
+            errors={errors.aboutMe}
+            touched={touched.aboutMe}
+            labelName="ჩემს შესახებ(არასავალდებულო)"
+            placeholder=""
+            setFieldValue={setFieldValue}
+            setFormValues={setFormValues}
+            className="input--label-full"
+          />
+          <InputField
+            mainName="email"
+            value={initialValues?.email}
+            errors={errors.email}
+            touched={touched.email}
+            labelName="ელ-ფოსტა"
+            placeholder="anzor777@redberry.ge"
+            setFieldValue={setFieldValue}
+            setFormValues={setFormValues}
+            className="input--label-full"
+          />
+          <InputField
+            mainName="phone"
+            value={initialValues?.phone}
+            labelName="ნომერი"
+            errors={errors.phone}
+            touched={touched.phone}
+            placeholder="+995 555 55 55 55"
+            setFieldValue={setFieldValue}
+            setFormValues={setFormValues}
+            className="input--label-full"
+          />
           <button type="submit" className="submit__btn">
             შემდეგი
           </button>

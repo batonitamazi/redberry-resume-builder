@@ -8,8 +8,8 @@ export const validationSchemas = {
         surname: Yup.string().required("გვარი სავალდებულო ველია").min(2, "მინიმუმ 2 სიმბოლო"),
         image: Yup.mixed().nullable().required("სურათის ატვირთვა სავალდებულოა"),
         aboutMe: Yup.string().notRequired(),
-        email: Yup.string().email().required("ელექტრონული ფოსტა სავალდებულო ველია"),
-        phone: Yup.string().required("ტელეფონი სავალდებულოა ველია.").min(9, 'ტელეფონი უნდა იყოს 9 ნიშნა.').max(9, 'ტელეფონი უნდა იყოს 9 ნიშნა.'),
+        email: Yup.string().email().required("ელექტრონული ფოსტა სავალდებულო ველია").matches(/^[a-zA-Z0-9.]+@redberry.ge$/),
+        phone: Yup.string().required("ტელეფონი სავალდებულოა ველია.").matches(/^\+995\s5\d{2}\s\d{2}\s\d{2}\s\d{2}$/),
     }),
     "experienceInformation": Yup.object().shape({
         position: Yup.string().required("თანამდებობა სავალდებულო ველია").min(2, "მინიმუმ 2 სიმბოლო"),
