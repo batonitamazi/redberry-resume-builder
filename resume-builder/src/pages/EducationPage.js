@@ -4,21 +4,24 @@ import ResumeSideBar from "../components/resumeSideBar/ResumeSideBar";
 import PageHeader from "../components/pageheader/PageHeader";
 import EducationForm from "../components/educationform/EducationForm";
 
+const initialState = {
+  school: "",
+  degree: "",
+  endDate: "",
+  description: "",
+}
+
+
 function EducationPage() {
   const navigate = useNavigate();
-  const [initialValues, setInitialValues] = useState({
-    school: "",
-    degree: "",
-    endDate: "",
-    description: "",
-  });
-  const [formValues, setFormValues] = useState();
+  const [initialValues, setInitialValues] = useState(initialState);
+  const [formValues, setFormValues] = useState(initialState);
   const getValues = (values) => {
     localStorage.setItem("educationInformation", JSON.stringify(values));
     navigate("/resume");
   };
   useEffect(() => {
-    if (formValues) {
+    if (formValues !== initialState) {
       localStorage.setItem("educationInformation", JSON.stringify(formValues));
       setInitialValues(
         JSON.parse(localStorage.getItem("educationInformation"))

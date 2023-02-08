@@ -5,24 +5,25 @@ import { useNavigate } from "react-router-dom";
 import ResumeSideBar from "../components/resumeSideBar/ResumeSideBar";
 import PageHeader from "../components/pageheader/PageHeader";
 import GeneralInfoForm from "../components/generalinfoform/GeneralInfoForm";
+const initialState = {
+  name: "",
+  surname: "",
+  image: "",
+  aboutMe: "",
+  email: "",
+  phone: "",
+};
 
 function GeneralInfoPage() {
-  const [initialValues, setInitialValues] = useState({
-    name: "",
-    surname: "",
-    image: "",
-    aboutMe: "",
-    email: "",
-    phone: "",
-  });
-  const [formValues, setFormValues] = useState();
+  const [initialValues, setInitialValues] = useState(initialState);
+  const [formValues, setFormValues] = useState(initialState);
   const navigate = useNavigate();
   const getValues = (values) => {
     localStorage.setItem("generalInformation", JSON.stringify(values));
     navigate("/experience");
   };
   useEffect(() => {
-    if (formValues) {
+    if (formValues !== initialState) {
       localStorage.setItem("generalInformation", JSON.stringify(formValues));
       setInitialValues(
         JSON.parse(localStorage.getItem("generalInformation"))

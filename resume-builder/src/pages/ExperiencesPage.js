@@ -2,25 +2,26 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import PageHeader from "../components/pageheader/PageHeader";
 import ResumeSideBar from "../components/resumeSideBar/ResumeSideBar";
-import ExperienceForm from '../components/experienceform/ExperienceForm'
+import ExperienceForm from "../components/experienceform/ExperienceForm";
 
-
+const initialState = {
+  position: "",
+  employer: "",
+  startDate: "",
+  endDate: "",
+  description: "",
+};
 function ExperiencesPage() {
   const navigate = useNavigate();
-  const [initialValues, setInitialValues] = useState({
-    position: "",
-    employer: "",
-    startDate: "",
-    endDate: "",
-    description: "",
-  });
-  const [formValues, setFormValues] = useState();
+  const [initialValues, setInitialValues] = useState(initialState);
+  const [formValues, setFormValues] = useState(initialState);
+  const [numFields, setNumFields] = useState(1);
   const getValues = (values) => {
     localStorage.setItem("experienceInformation", JSON.stringify(values));
     navigate("/education");
   };
   useEffect(() => {
-    if (formValues) {
+    if (formValues !== initialState) {
       localStorage.setItem("experienceInformation", JSON.stringify(formValues));
       setInitialValues(
         JSON.parse(localStorage.getItem("experienceInformation"))
@@ -29,17 +30,26 @@ function ExperiencesPage() {
   }, [formValues]);
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("experienceInformation"))) {
-      setInitialValues(JSON.parse(localStorage.getItem("experienceInformation")));
-      setFormValues(JSON.parse(localStorage.getItem("experienceInformation")))
+      setInitialValues(
+        JSON.parse(localStorage.getItem("experienceInformation"))
+      );
+      setFormValues(JSON.parse(localStorage.getItem("experienceInformation")));
     }
-  }, [])
+  }, []);
   return (
     <div className="form--page">
       <div className="form--container">
-        <PageHeader navigate={navigate} header="გამოცდილება" pagesize="2/3"/>
-        <ExperienceForm initialValues={initialValues} setFormValues={setFormValues} getValues={getValues} navigate={navigate}/>
+        <PageHeader navigate={navigate} header="გამოცდილება" pagesize="2/3" />
+        <ExperienceForm
+          initialValues={initialValues}
+          setFormValues={setFormValues}
+          getValues={getValues}
+          navigate={navigate}
+          numFields={numFields}
+          setNumFields={setNumFields}
+        />
       </div>
-      <ResumeSideBar experienceInfo={formValues}/>
+      <ResumeSideBar experienceInfo={formValues} />
     </div>
   );
 }

@@ -6,20 +6,14 @@ import "./generalinfoform.css";
 function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
   return (
     <Formik
+      enableReinitialize={true}
       validationSchema={validationSchemas["generalInformation"]}
       initialValues={initialValues}
       onSubmit={getValues}
-      enableReinitialize={true}
     >
-      {({
-        errors,
-        touched,
-        handleSubmit,
-        setFieldValue,
-      }) => (
+      {({ errors, touched, handleSubmit, setFieldValue }) => (
         <Form
           onSubmit={(values) => {
-            console.log(errors);
             handleSubmit(values);
           }}
           className="form--card"
@@ -30,10 +24,14 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
               <input
                 id="name"
                 name="name"
-                className={touched.name && errors.name   ? "input--field--error" : "input--field"}
+                defaultValue={initialValues?.name}
+                className={
+                  errors.name && touched.name
+                    ? "input--field--error"
+                    : "input--field"
+                }
                 type="text"
                 placeholder="სახელი"
-                defaultValue={initialValues?.name}
                 onChange={(e) => {
                   setFieldValue("name", e.target.value);
                   setFormValues((prevstate) => {
@@ -52,7 +50,9 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
                 name="surname"
                 defaultValue={initialValues?.surname}
                 className={
-                  errors.surname && touched.surname? "input--field--error" : "input--field"
+                  errors.surname && touched.surname
+                    ? "input--field--error"
+                    : "input--field"
                 }
                 type="text"
                 placeholder="გვარი"
@@ -123,7 +123,11 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
               id="email"
               name="email"
               defaultValue={initialValues?.email}
-              className={errors.email && touched.email? "input--field--error" : "input--field"}
+              className={
+                errors.email && touched.email
+                  ? "input--field--error"
+                  : "input--field"
+              }
               type="text"
               placeholder="anzor777@redberry.ge"
               onChange={(e) => {
@@ -143,7 +147,11 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
               id="phone"
               name="phone"
               defaultValue={initialValues?.phone}
-              className={errors.phone && touched.phone? "input--field--error" : "input--field"}
+              className={
+                errors.phone && touched.phone
+                  ? "input--field--error"
+                  : "input--field"
+              }
               type="text"
               placeholder="+995 555 55 55 55"
               onChange={(e) => {

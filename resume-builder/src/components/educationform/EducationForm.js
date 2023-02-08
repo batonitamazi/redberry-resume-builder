@@ -23,7 +23,11 @@ function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
               <input
                 id="school"
                 name="school"
-                className="input--field"
+                className={
+                  errors.school && touched.school
+                    ? "input--field--error"
+                    : "input--field"
+                }
                 type="text"
                 placeholder="სასწავლებელი"
                 defaultValue={initialValues?.school}
@@ -44,7 +48,11 @@ function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
                 <input
                   id="degree"
                   name="degree"
-                  className="input--field"
+                  className={
+                    errors.degree && touched.degree
+                      ? "input--field--error"
+                      : "input--field"
+                  }
                   type="text"
                   defaultValue={initialValues?.degree}
                   placeholder="ხარისხი"
@@ -66,7 +74,11 @@ function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
                   name="endDate"
                   defaultValue={initialValues?.endDate}
                   type="date"
-                  className="input--field"
+                  className={
+                    errors.endDate && touched.endDate
+                      ? "input--field--error"
+                      : "input--field"
+                  }
                   placeholder="mm/dd/yyyy"
                   onChange={(e) => {
                     setFieldValue("endDate", e.target.value);
@@ -85,7 +97,11 @@ function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
               <input
                 id="description"
                 name="description"
-                className="input--field textarea--field"
+                className={
+                  errors.description && touched.description
+                    ? "input--field--error"
+                    : "input--field"
+                }
                 type="text"
                 defaultValue={initialValues?.description}
                 placeholder="როლი თანამდებობაზე"
