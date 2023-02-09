@@ -5,45 +5,53 @@ import ResumeSideBar from "../components/resumeSideBar/ResumeSideBar";
 import ExperienceForm from "../components/experienceform/ExperienceForm";
 
 const initialState = {
-  position: "",
-  employer: "",
-  startDate: "",
-  endDate: "",
-  description: "",
+  experiences: [
+    {
+      position: "",
+      employer: "",
+      startDate: "",
+      endDate: "",
+      description: "",
+    },
+  ]
 };
 function ExperiencesPage() {
   const navigate = useNavigate();
-  const [initialValues, setInitialValues] = useState(initialState);
+  // const [initialValues, setInitialValues] = useState(initialState);
   const [formValues, setFormValues] = useState(initialState);
   const getValues = (values) => {
     localStorage.setItem("experienceInformation", JSON.stringify(values));
-    navigate("/education");
+    // navigate("/education");
   };
+  // useEffect(() => {
+  //   if (formValues !== initialState) {
+  //     localStorage.setItem("experienceInformation", JSON.stringify(formValues));
+  //     setInitialValues(
+  //       JSON.parse(localStorage.getItem("experienceInformation"))
+  //     );
+  //   }
+  // }, [formValues]);
+  // useEffect(() => {
+  //   if (JSON.parse(localStorage.getItem("experienceInformation"))) {
+  //     setInitialValues(
+  //       JSON.parse(localStorage.getItem("experienceInformation"))
+  //     );
+  //     setFormValues(JSON.parse(localStorage.getItem("experienceInformation")));
+  //   }
+  // }, []);
   useEffect(() => {
-    if (formValues !== initialState) {
-      localStorage.setItem("experienceInformation", JSON.stringify(formValues));
-      setInitialValues(
-        JSON.parse(localStorage.getItem("experienceInformation"))
-      );
-    }
-  }, [formValues]);
-  useEffect(() => {
-    if (JSON.parse(localStorage.getItem("experienceInformation"))) {
-      setInitialValues(
-        JSON.parse(localStorage.getItem("experienceInformation"))
-      );
-      setFormValues(JSON.parse(localStorage.getItem("experienceInformation")));
-    }
-  }, []);
+    console.log(formValues)
+  }, [formValues])
   return (
     <div className="form--page">
       <div className="form--container">
         <PageHeader navigate={navigate} header="გამოცდილება" pagesize="2/3" />
         <ExperienceForm
-          initialValues={initialValues}
-          setFormValues={setFormValues}
+          initialValues={initialState}
           getValues={getValues}
           navigate={navigate}
+          setFormValues={setFormValues}
+          formValues={formValues}
         />
       </div>
       <ResumeSideBar experienceInfo={formValues} />

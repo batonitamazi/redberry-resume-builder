@@ -91,7 +91,6 @@ function InputField({
             onChange={(e) => {
               setFieldValue(mainName, e.target.value);
               setFormValues((prevstate) => {
-                console.log(mainName);
                 return { ...prevstate, [`${mainName}`]: e.target.value };
               });
             }}

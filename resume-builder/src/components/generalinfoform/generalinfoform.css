@@ -23,6 +23,7 @@
     align-items: flex-start;
 }
 .textarea--field {
+    padding-bottom: 90px;
     height: 123px;
     max-height: 130px;
     padding-top: 13px;
