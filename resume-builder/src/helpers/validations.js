@@ -54,6 +54,5 @@ export const schema = Yup.object().shape({
       description: Yup.string().required("აღწერა სავალდებულო ველია"),
     })
   ),
-  // .required("Must have friends") // these constraints are shown if and only if inner constraints are satisfied
-  // .min(3, "Minimum of 3 friends"),
+    
 });

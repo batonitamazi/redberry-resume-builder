@@ -12,9 +12,10 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
       initialValues={initialValues}
       onSubmit={getValues}
     >
-      {({ errors, touched, handleSubmit, setFieldValue }) => (
+      {({ errors, touched, handleSubmit, setFieldValue }) =>(
         <Form
           onSubmit={(values) => {
+            console.log(errors)
             handleSubmit(values);
           }}
           className="form--card"
