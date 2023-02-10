@@ -17,37 +17,35 @@ const initialState = {
 };
 function ExperiencesPage() {
   const navigate = useNavigate();
-  // const [initialValues, setInitialValues] = useState(initialState);
+  const [initialValues, setInitialValues] = useState(initialState);
   const [formValues, setFormValues] = useState(initialState);
   const getValues = (values) => {
     localStorage.setItem("experienceInformation", JSON.stringify(values));
-    // navigate("/education");
+    navigate("/education");
   };
-  // useEffect(() => {
-  //   if (formValues !== initialState) {
-  //     localStorage.setItem("experienceInformation", JSON.stringify(formValues));
-  //     setInitialValues(
-  //       JSON.parse(localStorage.getItem("experienceInformation"))
-  //     );
-  //   }
-  // }, [formValues]);
-  // useEffect(() => {
-  //   if (JSON.parse(localStorage.getItem("experienceInformation"))) {
-  //     setInitialValues(
-  //       JSON.parse(localStorage.getItem("experienceInformation"))
-  //     );
-  //     setFormValues(JSON.parse(localStorage.getItem("experienceInformation")));
-  //   }
-  // }, []);
   useEffect(() => {
-    console.log(formValues)
-  }, [formValues])
+    if (formValues !== initialState) {
+      localStorage.setItem("experienceInformation", JSON.stringify(formValues));
+      setInitialValues(
+        JSON.parse(localStorage.getItem("experienceInformation"))
+      );
+    }
+  }, [formValues]);
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("experienceInformation"))) {
+      setInitialValues(
+        JSON.parse(localStorage.getItem("experienceInformation"))
+      );
+      setFormValues(JSON.parse(localStorage.getItem("experienceInformation")));
+    }
+  }, []);
+
   return (
     <div className="form--page">
       <div className="form--container">
         <PageHeader navigate={navigate} header="გამოცდილება" pagesize="2/3" />
         <ExperienceForm
-          initialValues={initialState}
+          initialValues={initialValues}
           getValues={getValues}
           navigate={navigate}
           setFormValues={setFormValues}

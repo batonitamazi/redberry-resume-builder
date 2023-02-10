@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { Field, Form, Formik } from "formik";
-// import { validationSchemas } from "../helpers/validations";
+
 import ResumeSideBar from "../components/resumeSideBar/ResumeSideBar";
 import PageHeader from "../components/pageheader/PageHeader";
 import GeneralInfoForm from "../components/generalinfoform/GeneralInfoForm";

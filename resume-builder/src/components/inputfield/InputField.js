@@ -1,4 +1,5 @@
 import React from "react";
+import ErrorField from "../errorField/ErrorField";
 
 function InputField({
   mainName,
@@ -38,9 +39,7 @@ function InputField({
               });
             }}
           />
-          {errors && touched ? (
-            <div className="error_message">{errors}</div>
-          ) : null}
+          <ErrorField errors={errors} touched={touched} />
         </label>
       );
     case "image":
@@ -60,15 +59,13 @@ function InputField({
                   setFieldValue(mainName, reader.result);
                   setFormValues((prevstate) => {
                     return { ...prevstate, [`${mainName}`]: reader.result };
-                  })
+                  });
                 };
                 reader.readAsDataURL(file);
               }}
             />
           </label>
-          {errors && touched ? (
-            <div className="error_message">{errors}</div>
-          ) : null}
+          <ErrorField errors={errors} touched={touched} />
         </>
       );
     default:
@@ -78,7 +75,6 @@ function InputField({
           className={className ? className : "input--label"}
         >
           {labelName}
-
           <input
             id={mainName}
             name={mainName}
@@ -95,9 +91,7 @@ function InputField({
               });
             }}
           />
-          {errors && touched ? (
-            <div className="error_message">{errors}</div>
-          ) : null}
+          <ErrorField errors={errors} touched={touched} />
         </label>
       );
   }

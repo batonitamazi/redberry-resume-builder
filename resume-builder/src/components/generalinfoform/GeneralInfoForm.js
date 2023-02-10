@@ -42,29 +42,15 @@ function GeneralInfoForm({ initialValues, setFormValues, getValues }) {
             />
           </div>
           <div className="image--container">
-            <label htmlFor="image">
-              პირადი ფოტოს ატვირთვა
-              <input
-                id="image"
-                name="image"
-                type="file"
-                defaultValue={initialValues?.image}
-                onChange={(e) => {
-                  const file = e.target.files[0];
-                  const reader = new FileReader();
-                  reader.onloadend = () => {
-                    setFieldValue("image", reader.result);
-                    setFormValues((prevstate) => {
-                      return { ...prevstate, image: reader.result };
-                    });
-                  };
-                  reader.readAsDataURL(file);
-                }}
-              />
-            </label>
-            {errors.image && touched.image ? (
-              <div className="error_message">{errors.image}</div>
-            ) : null}
+            <InputField 
+              mainName="image"
+              value={initialValues?.image}
+              errors={errors.image}
+              touched={touched.image}
+              labelName="პირადი ფოტოს ატვირთვა"
+              setFieldValue={setFieldValue}
+              setFormValues={setFormValues}
+            />
           </div>
           <InputField
             mainName="aboutMe"
