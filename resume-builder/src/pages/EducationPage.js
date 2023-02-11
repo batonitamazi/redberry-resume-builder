@@ -5,12 +5,15 @@ import PageHeader from "../components/pageheader/PageHeader";
 import EducationForm from "../components/educationform/EducationForm";
 
 const initialState = {
-  school: "",
-  degree: "",
-  endDate: "",
-  description: "",
-}
-
+  educations: [
+    {
+      school: "",
+      degree: "",
+      endDate: "",
+      description: "",
+    },
+  ],
+};
 
 function EducationPage() {
   const navigate = useNavigate();
@@ -30,7 +33,9 @@ function EducationPage() {
   }, [formValues]);
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("educationInformation"))) {
-      setInitialValues(JSON.parse(localStorage.getItem("educationInformation")));
+      setInitialValues(
+        JSON.parse(localStorage.getItem("educationInformation"))
+      );
       setFormValues(JSON.parse(localStorage.getItem("educationInformation")));
     }
   }, []);
@@ -40,7 +45,7 @@ function EducationPage() {
         <PageHeader navigate={navigate} header="განათლება" pagesize="3/3" />
         <EducationForm
           initialValues={initialValues}
-          setFormValues={setFormValues}
+          setFormValues={setFormValues} 
           getValues={getValues}
           navigate={navigate}
         />

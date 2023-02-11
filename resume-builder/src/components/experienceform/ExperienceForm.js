@@ -1,16 +1,17 @@
 import React from "react";
-import { Formik, Form, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import "./experienceform.css";
 import ExperienceFieldArray from "./ExperienceFieldArray";
 
 function ExperienceForm({ initialValues, getValues, navigate, setFormValues }) {
   return (
-      <Formik
-        initialValues={initialValues}
-        enableReinitialize={true}
-        validationSchema={Yup.object({
-          experiences: Yup.array().of(
+    <Formik
+      initialValues={initialValues}
+      enableReinitialize={true}
+      validationSchema={Yup.object({
+        experiences: Yup.array()
+          .of(
             Yup.object().shape({
               position: Yup.string()
                 .required("თანამდებობა სავალდებულო ველია")
@@ -26,38 +27,39 @@ function ExperienceForm({ initialValues, getValues, navigate, setFormValues }) {
               ),
               description: Yup.string().required("აღწერა სავალდებულო ველია"),
             })
-          ).required("სავალდებულოა"),
-        })}
-        onSubmit={getValues}
-      >
-        {({ values, handleSubmit, setFieldValue, errors, touched}) => (
-          <Form
-            onSubmit={(values) => {
-              handleSubmit(values);
-            }}
-            className="form--card"
-          >
-            <ExperienceFieldArray
-              values={values}
-              setFieldValue={setFieldValue}
-              errors={errors}
-              touched={touched}
-              setFormValues={setFormValues}
-            />
-            <div className="form--actions">
-              <button
-                className="submit__btn"
-                onClick={() => navigate("/general-information")}
-              >
-                უკან
-              </button>
-              <button type="submit" className="submit__btn">
-                შემდეგი
-              </button>
-            </div>
-          </Form>
-        )}
-      </Formik>
+          )
+          .required("სავალდებულოა"),
+      })}
+      onSubmit={getValues}
+    >
+      {({ values, handleSubmit, setFieldValue, errors, touched }) => (
+        <Form
+          onSubmit={(values) => {
+            handleSubmit(values);
+          }}
+          className="form--card"
+        >
+          <ExperienceFieldArray
+            values={values}
+            setFieldValue={setFieldValue}
+            errors={errors}
+            touched={touched}
+            setFormValues={setFormValues}
+          />
+          <div className="form--actions">
+            <button
+              className="submit__btn"
+              onClick={() => navigate("/general-information")}
+            >
+              უკან
+            </button>
+            <button type="submit" className="submit__btn">
+              შემდეგი
+            </button>
+          </div>
+        </Form>
+      )}
+    </Formik>
   );
 }
 

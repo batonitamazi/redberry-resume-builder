@@ -104,15 +104,15 @@ function ExperienceFieldArray({
                   description: "",
                 });
                 setFormValues((prevstate) => {
-                  prevstate.experiences.push({
+                  const newState = structuredClone(prevstate);
+                  newState.experiences.push({
                     position: "",
                     employer: "",
                     startDate: "",
                     endDate: "",
                     description: "",
                   });
-                  console.log(prevstate);
-                  return prevstate;
+                  return newState;
                 });
               }}
               type="button"

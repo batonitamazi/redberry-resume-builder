@@ -49,7 +49,6 @@ function ExperiencesPage() {
           getValues={getValues}
           navigate={navigate}
           setFormValues={setFormValues}
-          formValues={formValues}
         />
       </div>
       <ResumeSideBar experienceInfo={formValues} />

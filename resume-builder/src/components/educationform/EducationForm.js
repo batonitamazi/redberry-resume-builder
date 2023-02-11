@@ -1,16 +1,32 @@
 import React from "react";
 import { Form, Formik } from "formik";
-import { validationSchemas } from "../../helpers/validations";
+import * as Yup from "yup";
+import EducationFieldArray from "./EducationFieldArray";
 function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
   return (
     <>
       <Formik
-        validationSchema={validationSchemas["educationInformation"]}
         initialValues={initialValues}
         onSubmit={getValues}
         enableReinitialize={true}
+        validationSchema={Yup.object({
+          educations: Yup.array()
+            .of(
+              Yup.object().shape({
+                school: Yup.string()
+                  .required("სასწავლებელი სავალდებულო ველია")
+                  .min(2, "მინიმუმ 2 სიმბოლო"),
+                degree: Yup.string().required("ხარისხი სავალდებულო ველია"),
+                endDate: Yup.date().required(
+                  "დამთავრების თარიღი სავალდებულო ველია"
+                ),
+                description: Yup.string().required("აღწერა სავალდებულო ველია"),
+              })
+            )
+            .required("სავალდებულოა"),
+        })}
       >
-        {({ errors, touched, handleSubmit, setFieldValue }) => (
+        {({ values, errors, touched, handleSubmit, setFieldValue }) => (
           <Form
             onSubmit={(values) => {
               console.log(errors);
@@ -18,110 +34,13 @@ function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
             }}
             className="form--card"
           >
-            <label htmlFor="school" className="input--label-full">
-              სასწავლებელი
-              <input
-                id="school"
-                name="school"
-                className={
-                  errors.school && touched.school
-                    ? "input--field--error"
-                    : "input--field"
-                }
-                type="text"
-                placeholder="სასწავლებელი"
-                defaultValue={initialValues?.school}
-                onChange={(e) => {
-                  setFieldValue("school", e.target.value);
-                  setFormValues((prevstate) => {
-                    return { ...prevstate, school: e.target.value };
-                  });
-                }}
-              />
-              {errors.school && touched.school ? (
-                <div>{errors.school}</div>
-              ) : null}
-            </label>
-            <div className="group--container">
-              <label htmlFor="degree" className="input--label">
-                ხარისხი
-                <input
-                  id="degree"
-                  name="degree"
-                  className={
-                    errors.degree && touched.degree
-                      ? "input--field--error"
-                      : "input--field"
-                  }
-                  type="text"
-                  defaultValue={initialValues?.degree}
-                  placeholder="ხარისხი"
-                  onChange={(e) => {
-                    setFieldValue("degree", e.target.value);
-                    setFormValues((prevstate) => {
-                      return { ...prevstate, degree: e.target.value };
-                    });
-                  }}
-                />
-                {errors.degree && touched.degree ? (
-                  <div className="error_message">{errors.degree}</div>
-                ) : null}
-              </label>
-              <label htmlFor="endDate" className="input--label">
-                დამთავრების რიცხვი
-                <input
-                  id="endDate"
-                  name="endDate"
-                  defaultValue={initialValues?.endDate}
-                  type="date"
-                  className={
-                    errors.endDate && touched.endDate
-                      ? "input--field--error"
-                      : "input--field"
-                  }
-                  placeholder="mm/dd/yyyy"
-                  onChange={(e) => {
-                    setFieldValue("endDate", e.target.value);
-                    setFormValues((prevstate) => {
-                      return { ...prevstate, endDate: e.target.value };
-                    });
-                  }}
-                />
-                {errors.endDate && touched.endDate ? (
-                  <div>{errors.endDate}</div>
-                ) : null}
-              </label>
-            </div>
-            <label htmlFor="description" className="input--label-full">
-              აღწერა
-              <input
-                id="description"
-                name="description"
-                className={
-                  errors.description && touched.description
-                    ? "input--field--error"
-                    : "input--field"
-                }
-                type="text"
-                defaultValue={initialValues?.description}
-                placeholder="როლი თანამდებობაზე"
-                onChange={(e) => {
-                  setFieldValue("description", e.target.value);
-                  setFormValues((prevstate) => {
-                    return { ...prevstate, description: e.target.value };
-                  });
-                }}
-              />
-              {errors.description && touched.description ? (
-                <div>{errors.description}</div>
-              ) : null}
-            </label>
-            <div className="grey--line"></div>
-            <div className="moreField--btn--container">
-              <button className="more__field__btn">
-                სხვა სასწავლებლის დამატება
-              </button>
-            </div>
+            <EducationFieldArray
+              values={values}
+              setFieldValue={setFieldValue}
+              errors={errors}
+              touched={touched}
+              setFormValues={setFormValues}
+            />
             <div className="form--actions">
               <button
                 className="submit__btn"

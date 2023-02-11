@@ -36,6 +36,8 @@ body {
   margin-top: 8px;
   font-size: 16px;
   font-weight: 400;
+  border-radius: 4px;
+  
 }
 .input--field:focus{
   outline: 2px solid #BCBCBC;
@@ -52,6 +54,8 @@ body {
   font-size: 16px;
   font-weight: 400;
   outline: 2px solid #EF5050;
+  border-radius: 4px;
+
 }
 .input--label {
   display: flex;
@@ -63,6 +67,7 @@ body {
   font-size: 16px;
   font-weight: 700;
   color: #000000;
+  margin-top: 10px;
 }
 input::file-selector-button {
   color: #FFFFFF;
@@ -79,4 +84,5 @@ input::file-selector-button {
   font-size: 16px;
   font-weight: 700;
   color: #000000;
+  margin-top: 10px;
 }
