@@ -4,7 +4,7 @@ import "./pageheader.css";
 function PageHeader({navigate, header, pagesize}) {
   return (
     <div className="page--header--container">
-      <button className="rounded--btn" onClick={() => navigate('/')}>
+      <button className="rounded--btn" onClick={() => navigate('/')} type="button">
         <img
           src="./assets/arrow.svg"
           alt="arrow button"

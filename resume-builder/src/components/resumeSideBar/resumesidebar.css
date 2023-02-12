@@ -1,5 +1,5 @@
 .sidebar--container {
-    width: 40%;
+    width: 822px;
     height: 100%;
     background-color: white;
     display: flex;
@@ -69,7 +69,7 @@
 }
 .grey--line {
     margin-top: 10px;
-    width: 100%;
+    width: 97.5%;
     border: 1px solid #C8C8C8;
 }
 .position--heading {

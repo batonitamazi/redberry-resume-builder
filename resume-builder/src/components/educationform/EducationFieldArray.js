@@ -15,7 +15,7 @@ function EducationFieldArray({
         <>
           {values.educations.length > 0 &&
             values.educations.map((education, index) => (
-              <div key={index} className="fieldArray-container">
+              <div key={index} className="form--inputs--container">
                 <ExperienceFormInput
                   mainName={`educations.${index}.school`}
                   placeholder="სასწავლებელი"
@@ -75,12 +75,13 @@ function EducationFieldArray({
                   inputClassName="textarea--field"
                 />
                 <ErrorMessage name={`educations.${index}.description`} />
+                <div className="grey--line" style={{ marginTop: "58px" }}></div>
               </div>
             ))}
-          <div className="grey--line"></div>
           <div className="moreField--btn--container">
             <button
               className="more__field__btn"
+              type="button"
               onClick={() => {
                 push({
                   school: "",
@@ -99,7 +100,6 @@ function EducationFieldArray({
                   return newState;
                 });
               }}
-              type="button"
             >
               სხვა სასწავლებლის დამატება
             </button>

@@ -48,6 +48,7 @@ function ExperienceForm({ initialValues, getValues, navigate, setFormValues }) {
           />
           <div className="form--actions">
             <button
+              type="button"
               className="submit__btn"
               onClick={() => navigate("/general-information")}
             >

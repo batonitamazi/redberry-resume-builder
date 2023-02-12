@@ -12,8 +12,11 @@
 .form--container {
   padding-top: 48px;
   height: 100%;
-  width: 60%;
-  overflow-y: auto;
+  width: 1098px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 .rounded--btn {
   width: 40px;
@@ -25,6 +28,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 61px;
 }
 .error_message {
   margin-top: 8px;

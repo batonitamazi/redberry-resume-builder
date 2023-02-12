@@ -30,3 +30,16 @@
   width: 100%;
   height: 59%;
 }
+.fieldArray--actions {
+  width: 100%;
+  margin-top: 48px;
+  height: 93px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.input--groups {
+  height: 596px;
+  overflow-y: auto;
+}

@@ -12,6 +12,7 @@ function LandingPage() {
       </div>
       <div className="landingPage--actions">
         <button
+          type="button"
           onClick={() => navigate("/general-information")}
           className="startForm--btn"
         >

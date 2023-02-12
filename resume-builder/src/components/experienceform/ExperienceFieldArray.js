@@ -15,7 +15,7 @@ function ExperienceFieldArray({
         <>
           {values.experiences.length > 0 &&
             values.experiences.map((experience, index) => (
-              <div key={index} className="fieldArray-container">
+              <div key={index} className="form--inputs--container">
                 <ExperienceFormInput
                   mainName={`experiences.${index}.position`}
                   placeholder="დეველოპერი, დიზაინერი, ა.შ"
@@ -89,9 +89,9 @@ function ExperienceFieldArray({
                   inputClassName="textarea--field"
                 />
                 <ErrorMessage name={`experiences.${index}.description`} />
+                <div className="grey--line" style={{ marginTop: "58px" }}></div>
               </div>
             ))}
-          <div className="grey--line"></div>
           <div className="moreField--btn--container">
             <button
               className="more__field__btn"

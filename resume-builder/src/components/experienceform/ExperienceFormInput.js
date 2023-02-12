@@ -28,15 +28,6 @@ function ExperienceFormInput({
         name={mainName}
         placeholder={placeholder}
         type={type ? type : "text"}
-        // className={
-        //   String(propertyName) === "description"
-        //     ? errors?.experiences && touched?.experiences[`${index}`][`${fieldName}`]
-        //       ? "input--field--error textarea--field"
-        //       : "input--field textarea--field"
-        //     : errors?.experiences && touched?.experiences[`${index}`][`${fieldName}`]
-        //     ? "input--field--error"
-        //     : "input--field"
-        // }
         className={classnameSetter(propertyName, errors, touched, fieldName, index)}
         onChange={(e) => {
           setFieldValue(`${mainName}`, e.target.value);
@@ -48,7 +39,6 @@ function ExperienceFormInput({
           });
         }}
       />
-      {/* <ErrorField errors={errors} touched={touched} /> */}
     </label>
   );
 }

@@ -8,7 +8,7 @@
 }
 .heading--container {
     height: 10%;
-    width: 95%;
+    width: 1780px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -42,8 +42,8 @@
     max-height: 38px;
 }
 .hologram__logo {
-    right: 41%;
-    top: 47%;
+    top: 520px;
+    left: 1076px;
     position: absolute;
     z-index: 1;
 }

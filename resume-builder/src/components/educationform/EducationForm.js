@@ -43,6 +43,7 @@ function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
             />
             <div className="form--actions">
               <button
+                type="button"
                 className="submit__btn"
                 onClick={() => navigate("/experience")}
               >

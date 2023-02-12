@@ -3,6 +3,9 @@
   src: local("AirbnbCerealMedium"),
     url("./fonts/HelveticaNeue.ttc") format("truetype");
 }
+::-webkit-scrollbar {
+  display: none;
+}
 
 body {
   margin: 0;
@@ -62,12 +65,11 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   gap: 5%;
-  width: 45%;
-  height: 102px;
+  width: 371px;
+  height: 122px;
   font-size: 16px;
   font-weight: 700;
   color: #000000;
-  margin-top: 10px;
 }
 input::file-selector-button {
   color: #FFFFFF;
@@ -80,7 +82,8 @@ input::file-selector-button {
   display: flex;
   flex-direction: column;
   gap: 5%;
-  width: 100%;
+  width: 798px;
+  height: 122px;
   font-size: 16px;
   font-weight: 700;
   color: #000000;
