@@ -1,6 +1,6 @@
 import axios from "axios";
 import imageToBlob from "./imageToBlob";
-export const formSubmit = (values, navigate) => {
+export const formSubmit = (values, navigate, degrees) => {
   localStorage.setItem("educationInformation", JSON.stringify(values));
   const name = JSON.parse(localStorage.getItem("generalInformation")).name;
   const surname = JSON.parse(
@@ -22,7 +22,6 @@ export const formSubmit = (values, navigate) => {
   ).educations;
 
   const image = imageToBlob(img);
-
   const url = "https://resume.redberryinternship.ge/api/cvs";
   const obieqti = {
     name,

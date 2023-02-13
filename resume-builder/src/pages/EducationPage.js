@@ -24,7 +24,7 @@ function EducationPage() {
   const [formValues, setFormValues] = useState(initialState);
   const [degrees, setDegrees] = useState([])
   const getValues = (values) => {
-    formSubmit(values, navigate)
+    formSubmit(values, navigate, degrees)
   };
   useEffect(() => {
     if (formValues !== initialState) {
@@ -49,7 +49,7 @@ function EducationPage() {
         <PageHeader navigate={navigate} header="განათლება" pagesize="3/3" />
         <EducationForm
           initialValues={initialValues}
-          setFormValues={setFormValues} 
+          setFormValues={setFormValues}
           getValues={getValues}
           navigate={navigate}
           degrees={degrees}

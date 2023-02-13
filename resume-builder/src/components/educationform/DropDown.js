@@ -46,7 +46,7 @@ function DropDown({
         }}
       >
         {degrees?.map((option, i) => (
-          <option key={i} value={option.title}>
+          <option key={i} value={option.id}>
             {option.title}
           </option>
         ))}

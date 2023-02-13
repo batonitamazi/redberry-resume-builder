@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./resumesidebar.css";
+import getDegrees from "../../helpers/getDegrees";
 
 function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
   const [generalInformation, setGeneralInformation] = useState();
   const [experienceInformation, setExperienceInformation] = useState();
   const [educationInformation, setEducationInformation] = useState();
+  const [degrees, setDegrees] = useState([]);
 
   useEffect(() => {
     setGeneralInformation(
@@ -16,77 +18,69 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
     setEducationInformation(
       JSON.parse(localStorage.getItem("educationInformation"))
     );
-  }, [generalInfo, experienceInfo, educationalInfo]);
+    getDegrees(setDegrees);
+  }, []);
+  const experience = experienceInfo || experienceInformation;
+  const education  = educationalInfo || educationInformation
+  const general = generalInfo || generalInformation
   return (
     <div className="sidebar--container">
       <div className="resume--container">
         <div className="generalInfo--card">
           <div className="generalInfo--text--card">
             <h1 className="person--name">
-              {generalInfo?.name?.length >= 0
-                ? generalInfo?.name
-                : generalInformation?.name}{" "}
-              {generalInfo?.surname?.length >= 0
-                ? generalInfo?.surname
-                : generalInformation?.surname}
+              {general?.name}{" "}
+              {general?.surname}
             </h1>
             <div>
-              {generalInfo?.email || generalInformation?.email ? (
+              {general?.email ? (
                 <div className="person--email">
                   <img
                     src="./assets/email.svg"
                     alt="email logo"
                     className="email__logo"
                   />
-                  {generalInfo?.email.length >= 0
-                    ? generalInfo?.email
-                    : generalInformation?.email}
+                  {general?.email}
                 </div>
               ) : null}
-              {generalInfo?.phone || generalInformation?.phone ? (
+              {general?.phone ? (
                 <div className="person--email">
                   <img
                     src="./assets/cellphone.svg"
                     alt="cellphone logo"
                     className="email__logo"
                   />
-                  {generalInfo?.phone.length >= 0
-                    ? generalInfo?.phone
-                    : generalInformation?.phone}
+                  {general?.phone}
                 </div>
               ) : null}
             </div>
-            {generalInfo?.aboutMe || generalInformation?.aboutMe ? (
-              <div className="aboutMe--container">
+            {general?.aboutMe ? (
+              <div className="aboutMe--container" style={{maxWidth: '410px'}}>
                 ჩემს შესახებ
                 <p className="aboutMe--parapgraph">
-                  {generalInfo?.aboutMe.length >= 0
-                    ? generalInfo?.aboutMe
-                    : generalInformation?.aboutMe}
+                  {general?.aboutMe}
                 </p>
               </div>
             ) : null}
           </div>
-          {generalInfo?.image || generalInformation?.image ? (
+          {general?.image ? (
             <img
               src={
-                generalInfo?.image.length >= 0
-                  ? generalInfo?.image
-                  : generalInformation?.image
+                general?.image
               }
               className="user__avatar"
               alt="user profile"
             />
           ) : null}
         </div>
-        {generalInfo?.name || generalInformation?.name ? (
+        {general?.name ? (
           <div className="grey--line"></div>
         ) : null}
-        {experienceInformation && (
+        {experience && (
           <div className="generalInfo--card">
             <div className="experienceInfo--text--card">
               გამოცდილება
-              {experienceInformation?.experiences?.map((experience, index) => {
+              {experience?.experiences?.map((experience, index) => {
                 return (
                   <div key={index} className="experiences__text">
                     <h2 className="position--heading">
@@ -107,15 +101,20 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
             </div>
           </div>
         )}
-        {educationInformation && (
+        {education && (
           <div className="generalInfo--card">
             <div className="experienceInfo--text--card">
               განათლება
-              {educationInformation?.educations?.map((education, index) => {
+              {education?.educations?.map((education, index) => {
                 return (
                   <div key={index} className="experiences__text">
                     <h2 className="position--heading">
-                      {education.institute}, {education.degree_id}
+                      {education.institute},
+                      {
+                        degrees?.find(
+                          (degree) => degree.id === Number(education?.degree_id)
+                        )?.title
+                      }
                     </h2>
                     <p className="working--date--range">{education.due_date}</p>
                     <p className="aboutMe--parapgraph">
