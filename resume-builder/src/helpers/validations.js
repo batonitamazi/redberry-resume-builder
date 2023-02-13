@@ -13,7 +13,7 @@ export const validationSchemas = {
     email: Yup.string()
       .email()
       .required("ელექტრონული ფოსტა სავალდებულო ველია")
-      .matches(/^[a-zA-Z0-9.]+@redberry.ge$/),
+      .matches(/^[a-zA-Z0-9.]+@redberry.ge$/, { message: <p>უნდა მთავრდებოდეს @redberry.ge-თი</p> }),
     phone: Yup.string().required("ტელეფონი სავალდებულოა ველია.").min(13, 'ტელეფონი უნდა იყოს 13 ნიშნა მაგალითად +995579120039').max(13, 'ტელეფონი უნდა იყოს 13 ნიშნა მაგალითად +995579120039'),
     // .matches(/^\+995\s5\d{2}\s\d{2}\s\d{2}\s\d{2}$/),
   }),
