@@ -46,19 +46,6 @@ function EducationFieldArray({
                     fieldName={`educations`}
                     degrees={degrees}
                   />
-                  {/* <ExperienceFormInput
-                    mainName={`educations.${index}.degree_id`}
-                    placeholder="ხარისხი"
-                    className="input--label"
-                    labelName="ხარისხი"
-                    errors={errors}
-                    touched={touched}
-                    setFieldValue={setFieldValue}
-                    setFormValues={setFormValues}
-                    index={index}
-                    propertyName={`degree_id`}
-                    fieldName={`educations`}
-                  /> */}
                   <ExperienceFormInput
                     mainName={`educations.${index}.due_date`}
                     type="date"

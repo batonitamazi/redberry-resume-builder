@@ -1,6 +1,6 @@
 import React from "react";
 import { classnameSetter } from "../../helpers/classNameSetter";
-import {ErrorMessage } from "formik";
+import { ErrorMessage, Field } from "formik";
 
 function DropDown({
   mainName,
@@ -23,10 +23,10 @@ function DropDown({
       className={className ? className : "input--label"}
     >
       {labelName}
-      <select
+      <Field
+        as="select"
         id={mainName}
         name={mainName}
-        placeholder={placeholder}
         type={type ? type : "text"}
         className={classnameSetter(
           propertyName,
@@ -45,14 +45,13 @@ function DropDown({
           });
         }}
       >
-        <option value="none">აირჩიეთ ხარისხი</option>
         {degrees?.map((option, i) => (
-          <option key={i} value={option.id}>
+          <option key={i} value={option.title}>
             {option.title}
           </option>
         ))}
-      </select>
-      <ErrorMessage name={mainName} component="div" className="error_message"/>
+      </Field>
+      <ErrorMessage name={mainName} component="div" className="error_message" />
     </label>
   );
 }
