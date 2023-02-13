@@ -43,7 +43,6 @@ function EducationPage() {
     }
     getDegrees(setDegrees)
   }, []);
-  console.log(degrees)
   return (
     <div className="form--page">
       <div className="form--container">
@@ -53,6 +52,7 @@ function EducationPage() {
           setFormValues={setFormValues} 
           getValues={getValues}
           navigate={navigate}
+          degrees={degrees}
         />
       </div>
       <ResumeSideBar educationalInfo={formValues} />

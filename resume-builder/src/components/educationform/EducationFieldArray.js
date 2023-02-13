@@ -1,6 +1,7 @@
-import {FieldArray } from "formik";
+import { FieldArray } from "formik";
 import React from "react";
 import ExperienceFormInput from "../experienceform/ExperienceFormInput";
+import DropDown from "./DropDown";
 
 function EducationFieldArray({
   values,
@@ -8,6 +9,7 @@ function EducationFieldArray({
   errors,
   touched,
   setFormValues,
+  degrees
 }) {
   return (
     <FieldArray name="educations">
@@ -30,7 +32,7 @@ function EducationFieldArray({
                   fieldName={`educations`}
                 />
                 <div className="group--container">
-                  <ExperienceFormInput
+                  <DropDown
                     mainName={`educations.${index}.degree_id`}
                     placeholder="ხარისხი"
                     className="input--label"
@@ -42,7 +44,21 @@ function EducationFieldArray({
                     index={index}
                     propertyName={`degree_id`}
                     fieldName={`educations`}
+                    degrees={degrees}
                   />
+                  {/* <ExperienceFormInput
+                    mainName={`educations.${index}.degree_id`}
+                    placeholder="ხარისხი"
+                    className="input--label"
+                    labelName="ხარისხი"
+                    errors={errors}
+                    touched={touched}
+                    setFieldValue={setFieldValue}
+                    setFormValues={setFormValues}
+                    index={index}
+                    propertyName={`degree_id`}
+                    fieldName={`educations`}
+                  /> */}
                   <ExperienceFormInput
                     mainName={`educations.${index}.due_date`}
                     type="date"

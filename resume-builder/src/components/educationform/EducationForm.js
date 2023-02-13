@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import EducationFieldArray from "./EducationFieldArray";
-function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
+function EducationForm({ initialValues, setFormValues, getValues, navigate, degrees }) {
   return (
     <>
       <Formik
@@ -40,6 +40,7 @@ function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
               errors={errors}
               touched={touched}
               setFormValues={setFormValues}
+              degrees={degrees}
             />
             <div className="form--actions">
               <button
