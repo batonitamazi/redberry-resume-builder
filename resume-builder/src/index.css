@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "Halvetica";   /*Can be any text*/
-  src: local("AirbnbCerealMedium"),
-    url("./fonts/HelveticaNeue.ttc") format("truetype");
+  font-family: "Halvetica Neue";   /*Can be any text*/
+  src: 
+    url("./fonts/HelveticaNeue.ttc") format("TTC");
 }
 ::-webkit-scrollbar {
   display: none;
@@ -15,7 +15,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Halvetica";
+  font-family: "Halvetica Neue";
 }
 .contents--paragraph{
   font-size: 20px;

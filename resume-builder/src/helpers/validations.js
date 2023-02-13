@@ -14,9 +14,8 @@ export const validationSchemas = {
       .email()
       .required("ელექტრონული ფოსტა სავალდებულო ველია")
       .matches(/^[a-zA-Z0-9.]+@redberry.ge$/),
-    phone: Yup.string()
-      .required("ტელეფონი სავალდებულოა ველია.")
-      .matches(/^\+995\s5\d{2}\s\d{2}\s\d{2}\s\d{2}$/),
+    phone: Yup.string().required("ტელეფონი სავალდებულოა ველია.").min(13, 'ტელეფონი უნდა იყოს 13 ნიშნა მაგალითად +995579120039').max(13, 'ტელეფონი უნდა იყოს 13 ნიშნა მაგალითად +995579120039'),
+    // .matches(/^\+995\s5\d{2}\s\d{2}\s\d{2}\s\d{2}$/),
   }),
   // experiencesInformation: Yup.array.of(
   //   Yup.object.shape({
@@ -27,16 +26,16 @@ export const validationSchemas = {
   //       .required("დამსაქმებელი სავალდებულო ველია")
   //       .min(2, "მინიმუმ 2 სიმბოლო"),
   //     startDate: Yup.date().required("დაწყების თარიღი სავალდებულო ველია"),
-  //     endDate: Yup.date().required("დამთავრების თარიღი სავალდებულო ველია"),
+  //     due_date: Yup.date().required("დამთავრების თარიღი სავალდებულო ველია"),
   //     description: Yup.string().required("აღწერა სავალდებულო ველია"),
   //   })
   // ),
   educationInformation: Yup.object().shape({
-    school: Yup.string()
+    institute: Yup.string()
       .required("სასწავლებელი სავალდებულო ველია")
       .min(2, "მინიმუმ 2 სიმბოლო"),
-    degree: Yup.string().required("ხარისხი სავალდებულო ველია"),
-    endDate: Yup.date().required("დამთავრების თარიღი სავალდებულო ველია"),
+    degree_id: Yup.string().required("ხარისხი სავალდებულო ველია"),
+    due_date: Yup.date().required("დამთავრების თარიღი სავალდებულო ველია"),
     description: Yup.string().required("აღწერა სავალდებულო ველია"),
   }),
 };
@@ -49,10 +48,9 @@ export const schema = Yup.object().shape({
       employer: Yup.string()
         .required("დამსაქმებელი სავალდებულო ველია")
         .min(2, "მინიმუმ 2 სიმბოლო"),
-      startDate: Yup.date().required("დაწყების თარიღი სავალდებულო ველია"),
-      endDate: Yup.date().required("დამთავრების თარიღი სავალდებულო ველია"),
+      start_date: Yup.date().required("დაწყების თარიღი სავალდებულო ველია"),
+      due_date: Yup.date().required("დამთავრების თარიღი სავალდებულო ველია"),
       description: Yup.string().required("აღწერა სავალდებულო ველია"),
     })
   ),
-    
 });

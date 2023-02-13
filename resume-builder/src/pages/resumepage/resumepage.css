@@ -1,0 +1,42 @@
+.resume--page {
+    padding: 54px;
+    width: 100%;
+    height: 1263px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.resume--popup--container {
+    display: flex;
+    width: 1301px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.pop-up {
+    width: 427px;
+    height: 167px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 12px;
+}
+.pop-up-hidden {
+    display: none;
+}
+.pop-up-text {
+    padding-left: 18px;
+    padding-top: 9px;
+    height: 100px;
+    color: #1A1A1A;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 43px;
+}
+.delete__icon {
+    margin-top: 6px;
+    width: 13.13px;
+    height: 13.13px;
+    cursor: pointer;
+}

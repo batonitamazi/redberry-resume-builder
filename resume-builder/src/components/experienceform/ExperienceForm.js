@@ -19,10 +19,10 @@ function ExperienceForm({ initialValues, getValues, navigate, setFormValues }) {
               employer: Yup.string()
                 .required("დამსაქმებელი სავალდებულო ველია")
                 .min(2, "მინიმუმ 2 სიმბოლო"),
-              startDate: Yup.date().required(
+              start_date: Yup.date().required(
                 "დაწყების თარიღი სავალდებულო ველია"
               ),
-              endDate: Yup.date().required(
+              due_date: Yup.date().required(
                 "დამთავრების თარიღი სავალდებულო ველია"
               ),
               description: Yup.string().required("აღწერა სავალდებულო ველია"),

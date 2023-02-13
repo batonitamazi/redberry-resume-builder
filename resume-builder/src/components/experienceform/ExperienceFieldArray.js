@@ -1,5 +1,5 @@
 import React from "react";
-import { FieldArray, ErrorMessage } from "formik";
+import { FieldArray} from "formik";
 import ExperienceFormInput from "./ExperienceFormInput";
 
 function ExperienceFieldArray({
@@ -29,7 +29,7 @@ function ExperienceFieldArray({
                   propertyName={`position`}
                   fieldName={`experiences`}
                 />
-                <ErrorMessage name={`experiences.${index}.position`} />
+
                 <ExperienceFormInput
                   mainName={`experiences.${index}.employer`}
                   placeholder="დამსაქმებელი"
@@ -43,10 +43,10 @@ function ExperienceFieldArray({
                   propertyName={`employer`}
                   fieldName={`experiences`}
                 />
-                <ErrorMessage name={`experiences.${index}.employer`} />
+
                 <div className="group--container">
                   <ExperienceFormInput
-                    mainName={`experiences.${index}.startDate`}
+                    mainName={`experiences.${index}.start_date`}
                     placeholder="mm / dd / yyyy"
                     type="date"
                     labelName="დაწყების რიცხვი"
@@ -55,12 +55,12 @@ function ExperienceFieldArray({
                     setFieldValue={setFieldValue}
                     setFormValues={setFormValues}
                     index={index}
-                    propertyName={`startDate`}
+                    propertyName={`start_date`}
                     fieldName={`experiences`}
                   />
-                  <ErrorMessage name={`experiences.${index}.startDate`} />
+
                   <ExperienceFormInput
-                    mainName={`experiences.${index}.endDate`}
+                    mainName={`experiences.${index}.due_date`}
                     type="date"
                     placeholder="mm / dd / yyyy"
                     labelName="დამთავრების რიცხვი"
@@ -69,10 +69,9 @@ function ExperienceFieldArray({
                     touched={touched}
                     setFormValues={setFormValues}
                     index={index}
-                    propertyName={`endDate`}
+                    propertyName={`due_date`}
                     fieldName={`experiences`}
                   />
-                  <ErrorMessage name={`experiences.${index}.endDate`} />
                 </div>
                 <ExperienceFormInput
                   mainName={`experiences.${index}.description`}
@@ -88,7 +87,6 @@ function ExperienceFieldArray({
                   fieldName={`experiences`}
                   inputClassName="textarea--field"
                 />
-                <ErrorMessage name={`experiences.${index}.description`} />
                 <div className="grey--line" style={{ marginTop: "58px" }}></div>
               </div>
             ))}
@@ -99,8 +97,8 @@ function ExperienceFieldArray({
                 push({
                   position: "",
                   employer: "",
-                  startDate: "",
-                  endDate: "",
+                  start_date: "",
+                  due_date: "",
                   description: "",
                 });
                 setFormValues((prevstate) => {
@@ -108,8 +106,8 @@ function ExperienceFieldArray({
                   newState.experiences.push({
                     position: "",
                     employer: "",
-                    startDate: "",
-                    endDate: "",
+                    start_date: "",
+                    due_date: "",
                     description: "",
                   });
                   return newState;

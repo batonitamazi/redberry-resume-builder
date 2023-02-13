@@ -3,13 +3,16 @@ import { useNavigate } from "react-router-dom";
 import ResumeSideBar from "../components/resumeSideBar/ResumeSideBar";
 import PageHeader from "../components/pageheader/PageHeader";
 import EducationForm from "../components/educationform/EducationForm";
+import { formSubmit } from "../helpers/formSubmit";
+import getDegrees from "../helpers/getDegrees";
+
 
 const initialState = {
   educations: [
     {
-      school: "",
-      degree: "",
-      endDate: "",
+      institute: "",
+      degree_id: "",
+      due_date: "",
       description: "",
     },
   ],
@@ -19,9 +22,9 @@ function EducationPage() {
   const navigate = useNavigate();
   const [initialValues, setInitialValues] = useState(initialState);
   const [formValues, setFormValues] = useState(initialState);
+  const [degrees, setDegrees] = useState([])
   const getValues = (values) => {
-    localStorage.setItem("educationInformation", JSON.stringify(values));
-    navigate("/resume");
+    formSubmit(values, navigate)
   };
   useEffect(() => {
     if (formValues !== initialState) {
@@ -38,7 +41,9 @@ function EducationPage() {
       );
       setFormValues(JSON.parse(localStorage.getItem("educationInformation")));
     }
+    getDegrees(setDegrees)
   }, []);
+  console.log(degrees)
   return (
     <div className="form--page">
       <div className="form--container">

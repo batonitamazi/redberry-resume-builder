@@ -1,6 +1,5 @@
 import React from "react";
-import { Field } from "formik";
-import ErrorField from "../errorField/ErrorField";
+import { Field, ErrorMessage } from "formik";
 import { classnameSetter } from "../../helpers/classNameSetter";
 
 function ExperienceFormInput({
@@ -39,6 +38,7 @@ function ExperienceFormInput({
           });
         }}
       />
+      <ErrorMessage name={mainName} component="div" className="error_message"/>
     </label>
   );
 }

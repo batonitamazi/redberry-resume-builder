@@ -5,7 +5,7 @@ import LandingPage from "./pages/landingpage/LandingPage";
 import GeneralInfoPage from "./pages/GeneralInfoPage";
 import ExperiencesPage from "./pages/ExperiencesPage";
 import EducationPage from "./pages/EducationPage";
-import ResumePage from "./pages/ResumePage";
+import ResumePage from "./pages/resumepage/ResumePage";
 
 function App() {
   return (

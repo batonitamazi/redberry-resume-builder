@@ -9,8 +9,8 @@ const initialState = {
     {
       position: "",
       employer: "",
-      startDate: "",
-      endDate: "",
+      start_date: "",
+      due_date: "",
       description: "",
     },
   ]

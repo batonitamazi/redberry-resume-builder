@@ -1,4 +1,4 @@
-import { ErrorMessage, FieldArray } from "formik";
+import {FieldArray } from "formik";
 import React from "react";
 import ExperienceFormInput from "../experienceform/ExperienceFormInput";
 
@@ -17,7 +17,7 @@ function EducationFieldArray({
             values.educations.map((education, index) => (
               <div key={index} className="form--inputs--container">
                 <ExperienceFormInput
-                  mainName={`educations.${index}.school`}
+                  mainName={`educations.${index}.institute`}
                   placeholder="სასწავლებელი"
                   className="input--label-full"
                   labelName="სასწავლებელი"
@@ -26,13 +26,12 @@ function EducationFieldArray({
                   setFieldValue={setFieldValue}
                   setFormValues={setFormValues}
                   index={index}
-                  propertyName={`school`}
+                  propertyName={`institute`}
                   fieldName={`educations`}
                 />
-                <ErrorMessage name={`educations.${index}.school`} />
                 <div className="group--container">
                   <ExperienceFormInput
-                    mainName={`educations.${index}.degree`}
+                    mainName={`educations.${index}.degree_id`}
                     placeholder="ხარისხი"
                     className="input--label"
                     labelName="ხარისხი"
@@ -41,12 +40,11 @@ function EducationFieldArray({
                     setFieldValue={setFieldValue}
                     setFormValues={setFormValues}
                     index={index}
-                    propertyName={`degree`}
+                    propertyName={`degree_id`}
                     fieldName={`educations`}
                   />
-                  <ErrorMessage name={`educations.${index}.degree`} />
                   <ExperienceFormInput
-                    mainName={`educations.${index}.endDate`}
+                    mainName={`educations.${index}.due_date`}
                     type="date"
                     placeholder="mm / dd / yyyy"
                     labelName="დამთავრების რიცხვი"
@@ -55,10 +53,9 @@ function EducationFieldArray({
                     touched={touched}
                     setFormValues={setFormValues}
                     index={index}
-                    propertyName={`endDate`}
+                    propertyName={`due_date`}
                     fieldName={`educations`}
                   />
-                  <ErrorMessage name={`educations.${index}.endDate`} />
                 </div>
                 <ExperienceFormInput
                   mainName={`educations.${index}.description`}
@@ -74,7 +71,6 @@ function EducationFieldArray({
                   fieldName={`educations`}
                   inputClassName="textarea--field"
                 />
-                <ErrorMessage name={`educations.${index}.description`} />
                 <div className="grey--line" style={{ marginTop: "58px" }}></div>
               </div>
             ))}
@@ -84,17 +80,17 @@ function EducationFieldArray({
               type="button"
               onClick={() => {
                 push({
-                  school: "",
-                  degree: "",
-                  endDate: "",
+                  institute: "",
+                  degree_id: "",
+                  due_date: "",
                   description: "",
                 });
                 setFormValues((prevstate) => {
                   const newState = structuredClone(prevstate);
                   newState.educations.push({
-                    school: "",
-                    degree: "",
-                    endDate: "",
+                    institute: "",
+                    degree_id: "",
+                    due_date: "",
                     description: "",
                   });
                   return newState;

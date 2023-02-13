@@ -13,11 +13,11 @@ function EducationForm({ initialValues, setFormValues, getValues, navigate }) {
           educations: Yup.array()
             .of(
               Yup.object().shape({
-                school: Yup.string()
+                institute: Yup.string()
                   .required("სასწავლებელი სავალდებულო ველია")
                   .min(2, "მინიმუმ 2 სიმბოლო"),
-                degree: Yup.string().required("ხარისხი სავალდებულო ველია"),
-                endDate: Yup.date().required(
+                degree_id: Yup.string().required("ხარისხი სავალდებულო ველია"),
+                due_date: Yup.date().required(
                   "დამთავრების თარიღი სავალდებულო ველია"
                 ),
                 description: Yup.string().required("აღწერა სავალდებულო ველია"),
