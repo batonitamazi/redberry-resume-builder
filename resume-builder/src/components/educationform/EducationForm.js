@@ -29,7 +29,6 @@ function EducationForm({ initialValues, setFormValues, getValues, navigate, degr
         {({ values, errors, touched, handleSubmit, setFieldValue }) => (
           <Form
             onSubmit={(values) => {
-              console.log(errors);
               handleSubmit(values);
             }}
             className="form--card"

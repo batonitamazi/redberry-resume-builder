@@ -1,10 +1,18 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./pageheader.css";
 
-function PageHeader({navigate, header, pagesize}) {
+function PageHeader({header, pagesize}) {
+  const navigate = useNavigate()
+  const handleClick = () => { 
+    localStorage.removeItem("generalInformation")
+    localStorage.removeItem("experienceInformation")
+    localStorage.removeItem("educationInformation")
+    navigate("/")
+  }
   return (
     <div className="page--header--container">
-      <button className="rounded--btn" onClick={() => navigate('/')} type="button">
+      <button className="rounded--btn" onClick={handleClick} type="button">
         <img
           src="./assets/arrow.svg"
           alt="arrow button"

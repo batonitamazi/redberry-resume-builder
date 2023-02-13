@@ -43,10 +43,11 @@ function EducationPage() {
     }
     getDegrees(setDegrees)
   }, []);
+ 
   return (
     <div className="form--page">
       <div className="form--container">
-        <PageHeader navigate={navigate} header="განათლება" pagesize="3/3" />
+        <PageHeader header="განათლება" pagesize="3/3" />
         <EducationForm
           initialValues={initialValues}
           setFormValues={setFormValues}

@@ -45,7 +45,7 @@ function InputField({
     case "image":
       return (
         <>
-          <label htmlFor={mainName}>
+          <label htmlFor={mainName} style={{fontSize: '16px', fontWeight: '700', color: '#000000'}}>
             {labelName}
             <input
               id={mainName}

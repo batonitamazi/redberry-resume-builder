@@ -39,11 +39,10 @@ function ExperiencesPage() {
       setFormValues(JSON.parse(localStorage.getItem("experienceInformation")));
     }
   }, []);
-
   return (
     <div className="form--page">
       <div className="form--container">
-        <PageHeader navigate={navigate} header="გამოცდილება" pagesize="2/3" />
+        <PageHeader header="გამოცდილება" pagesize="2/3" />
         <ExperienceForm
           initialValues={initialValues}
           getValues={getValues}

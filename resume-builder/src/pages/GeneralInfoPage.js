@@ -35,10 +35,11 @@ function GeneralInfoPage() {
       setFormValues(JSON.parse(localStorage.getItem("generalInformation")))
     }
   }, []);
+  
   return (
     <div className="form--page">
       <div className="form--container">
-        <PageHeader navigate={navigate} header="პირადი ინფო" pagesize="1/3" />
+        <PageHeader header="პირადი ინფო" pagesize="1/3" />
         <GeneralInfoForm
           initialValues={initialValues}
           setFormValues={setFormValues}

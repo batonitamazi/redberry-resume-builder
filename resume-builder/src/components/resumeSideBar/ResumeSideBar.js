@@ -21,16 +21,15 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
     getDegrees(setDegrees);
   }, []);
   const experience = experienceInfo || experienceInformation;
-  const education  = educationalInfo || educationInformation
-  const general = generalInfo || generalInformation
+  const education = educationalInfo || educationInformation;
+  const general = generalInfo || generalInformation;
   return (
     <div className="sidebar--container">
       <div className="resume--container">
         <div className="generalInfo--card">
           <div className="generalInfo--text--card">
             <h1 className="person--name">
-              {general?.name}{" "}
-              {general?.surname}
+              {general?.name} {general?.surname}
             </h1>
             <div>
               {general?.email ? (
@@ -55,27 +54,21 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
               ) : null}
             </div>
             {general?.aboutMe ? (
-              <div className="aboutMe--container" style={{maxWidth: '410px'}}>
+              <div className="aboutMe--container" style={{ maxWidth: "410px" }}>
                 ჩემს შესახებ
-                <p className="aboutMe--parapgraph">
-                  {general?.aboutMe}
-                </p>
+                <p className="aboutMe--parapgraph">{general?.aboutMe}</p>
               </div>
             ) : null}
           </div>
           {general?.image ? (
             <img
-              src={
-                general?.image
-              }
+              src={general?.image}
               className="user__avatar"
               alt="user profile"
             />
           ) : null}
         </div>
-        {general?.name ? (
-          <div className="grey--line"></div>
-        ) : null}
+        {general?.name ? <div className="grey--line"></div> : null}
         {experience && (
           <div className="generalInfo--card">
             <div className="experienceInfo--text--card">
@@ -83,14 +76,19 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
               {experience?.experiences?.map((experience, index) => {
                 return (
                   <div key={index} className="experiences__text">
-                    <h2 className="position--heading">
-                      {experience.position}, {experience.employer}
-                    </h2>
-                    <p className="working--date--range">
-                      {experience.start_date}
-                      {" - "}
-                      {experience.due_date}
-                    </p>
+                    {experience.position ? (
+                      <h2 className="position--heading">
+                        {experience.position}, {experience.employer}
+                      </h2>
+                    ) : null}
+
+                    {experience.start_date.length > 0 ? (
+                      <p className="working--date--range">
+                        {experience.start_date}
+                        {" - "}
+                        {experience.due_date}
+                      </p>
+                    ) : null}
                     <p className="aboutMe--parapgraph">
                       {experience.description}
                     </p>
@@ -108,14 +106,18 @@ function ResumeSideBar({ generalInfo, experienceInfo, educationalInfo }) {
               {education?.educations?.map((education, index) => {
                 return (
                   <div key={index} className="experiences__text">
-                    <h2 className="position--heading">
-                      {education.institute},
-                      {
-                        degrees?.find(
-                          (degree) => degree.id === Number(education?.degree_id)
-                        )?.title
-                      }
-                    </h2>
+                    {education.institute ? (
+                      <h2 className="position--heading">
+                        {education.institute}
+                        {", "}
+                        {
+                          degrees?.find(
+                            (degree) =>
+                              degree.id === Number(education?.degree_id)
+                          )?.title
+                        }
+                      </h2>
+                    ) : null}
                     <p className="working--date--range">{education.due_date}</p>
                     <p className="aboutMe--parapgraph">
                       {education.description}

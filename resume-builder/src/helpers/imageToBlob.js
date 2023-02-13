@@ -1,5 +1,4 @@
 const imageToBlob = (dataUrl) => {
-    console.log(dataUrl)
   const parts = dataUrl.split(";base64,");
   const contentType = parts[0].split(":")[1];
   const byteCharacters = atob(parts[1]);
